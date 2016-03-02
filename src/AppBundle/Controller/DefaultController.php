@@ -18,4 +18,21 @@ class DefaultController extends Controller
             'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
         ));
     }
+
+    /**
+     * @Route("/test", name="test")
+     */
+    public function testAction(Request $request)
+    {
+        //$userManager = $this->get('fos_user.user_manager');
+        $user = $this->getUser();
+        $test = $user->getUsername();
+        $test2 = $user->getId();
+        $test3 = $user->getEmail();
+
+        return $this->render('AppBundle:test.html.twig',
+            array('name' => $test, 'id' => $test2, 'email' => $test3)
+        );
+    }
 }
+
