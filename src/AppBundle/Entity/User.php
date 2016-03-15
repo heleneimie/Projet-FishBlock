@@ -53,12 +53,17 @@ class User extends BaseUser
      */
     private $myFriends;
 
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $created;
+
     public function __construct()
     {
         parent::__construct();
         $this->friendsWithMe = new ArrayCollection();
         $this->myFriends = new ArrayCollection();
-        // your own logic
+        $this->created = new \DateTime();
     }
 
     /**

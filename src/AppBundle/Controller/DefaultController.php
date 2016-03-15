@@ -13,9 +13,10 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
+        ($this->getUser())? $name=$this->getUser()->getUsername(): $name = "Invité";
         // replace this example code with whatever you need
-        return $this->render('main/index.html.twig',
-            array('nom' => 'Hélène'
+        return $this->render('AppBundle:index.html.twig',
+            array('name' => $name
             )
         );
     }
