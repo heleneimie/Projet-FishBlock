@@ -1,13 +1,101 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="UTF-8" />
+    <title>{% block title %}Welcome - Projet FishBlock{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css"
+          integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Font Awesome Library -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <!-- CSS stylesheet -->
+    <link rel="stylesheet"  type="text/css" href="../web/css/styles.css">
+    {% block stylesheets %}{% endblock %}
+
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+
+<body>
+<!-- Header -->
+<header>
+
+    <!-- Logo / Langues -->
+    <div class="container-fluid">
+        <div class="container">
+            <figure>
+                <img src="" alt="logo" />
+            </figure>
+        </div>
+        <div id="lang" class="container">
+            <a href="#">Langue</a>
+        </div>
+    </div>
+    <!-- Barre de menus -->
+    <div class="container-fluid">
+        <nav class="container">
+            <ul>
+                <li>Accueil</li>
+                <li>Séries</li>
+                <li>Membres</li>
+                <li>Profil</li>
+                <li>Forum</li>
+            </ul>
+            <a href="#" class="container">Inscription / connexion</a>
+        </nav>
+    </div>
+    <!-- Barre de recherche -->
+    <div class="container-fluid">
+        <div class="container">
+            <input type="text" placeholder="Rechercher une série"/>
+            <button type="submit">Rechercher</button>
+        </div>
+    </div>
+</header>
+
+{% block body %}{% endblock %}
+
+<!-- Footer -->
+<footer>
+    <!-- Barre de menus -->
+    <div class="container-fluid">
+        <nav class="container">
+            <ul>
+                <li>Accueil</li>
+                <li>Séries</li>
+                <li>Membres</li>
+                <li>Profil</li>
+                <li>Forum</li>
+            </ul>
+        </nav>
+        <!-- Icônes réseaux sociaux -->
+        <div class="container">
+            <figure>
+                <img src="" alt="facebook" />
+                <img src="" alt="twitter" />
+                <img src="" alt="googlePlus" />
+            </figure>
+        </div>
+        <!-- Mentions légales / Plan du site / Contact -->
+        <div class="container">
+            <span>Copyright 2015-2016 by Team IMIE</span>
+            <a href="#">Mentions légales</a>
+            <a href="#">Plan du site</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery first, then Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"
+        integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+
+{% block javascripts %}{% endblock %}
+</body>
 </html>
