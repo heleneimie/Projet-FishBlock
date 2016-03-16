@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Episode</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ episode.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ episode.title }}</td>
+            </tr>
+            <tr>
+                <th>Airdate</th>
+                <td>{% if episode.airdate %}{{ episode.airdate|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Length</th>
+                <td>{{ episode.length }}</td>
+            </tr>
+            <tr>
+                <th>Season</th>
+                <td>{{ episode.season }}</td>
+            </tr>
+            <tr>
+                <th>Summary</th>
+                <td>{{ episode.summary }}</td>
+            </tr>
+            <tr>
+                <th>Note</th>
+                <td>{{ episode.note }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('episode_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('episode_edit', { 'id': episode.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

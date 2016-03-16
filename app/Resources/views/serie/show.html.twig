@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Serie</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ serie.id }}</td>
+            </tr>
+            <tr>
+                <th>Nationality</th>
+                <td>{{ serie.nationality }}</td>
+            </tr>
+            <tr>
+                <th>Showrunner</th>
+                <td>{{ serie.showrunner }}</td>
+            </tr>
+            <tr>
+                <th>Actors</th>
+                <td>{{ serie.actors }}</td>
+            </tr>
+            <tr>
+                <th>Characters</th>
+                <td>{{ serie.characters }}</td>
+            </tr>
+            <tr>
+                <th>Seasons</th>
+                <td>{{ serie.seasons }}</td>
+            </tr>
+
+            <tr>
+                <th>Summary</th>
+                <td>{{ serie.summary }}</td>
+            </tr>
+            <tr>
+                <th>Comments</th>
+                <td>{{ serie.comments }}</td>
+            </tr>
+            <tr>
+                <th>Note</th>
+                <td>{{ serie.note }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('serie_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('serie_edit', { 'id': serie.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
