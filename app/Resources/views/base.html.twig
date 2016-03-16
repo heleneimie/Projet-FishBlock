@@ -4,7 +4,7 @@
     <!-- Required meta tags always come first -->
     <meta charset="UTF-8" />
     <title>{% block title %}Welcome - Projet FishBlock{% endblock %}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1 shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <!-- Bootstrap CSS -->
@@ -12,10 +12,10 @@
           integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
     <!-- Font Awesome Library -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    {#<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">#}
 
     <!-- CSS stylesheet -->
-    <link rel="stylesheet"  type="text/css" href="../web/css/styles.css">
+    {#<link rel="stylesheet"  type="text/css" href="{{ 'css/styles.css' }}">#}
     {% block stylesheets %}{% endblock %}
 
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
@@ -24,38 +24,47 @@
 <body>
 <!-- Header -->
 <header>
-
     <!-- Logo / Langues -->
-    <div class="container-fluid">
-        <div class="container">
-            <figure>
-                <img src="" alt="logo" />
-            </figure>
-        </div>
-        <div id="lang" class="container">
-            <a href="#">Langue</a>
-        </div>
+    <div class="container">
+        <figure>
+            <img src="..\web\bundles\appBundle\images\logo_PassionFiction.jpg" alt="logo" width="120"/>
+        </figure>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                   aria-expanded="false">Langues <span class="caret"></span></a>
+                <ul id="lang" class="dropdown-menu">
+                    <li><a href="#">Français</a></li>
+                    <li><a href="#">English</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- Barre de recherche -->
+        <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Rechercher une série">
+            </div>
+            <button type="submit" class="btn btn-default">Rechercher</button>
+        </form>
     </div>
     <!-- Barre de menus -->
-    <div class="container-fluid">
-        <nav class="container">
-            <ul>
-                <li>Accueil</li>
-                <li>Séries</li>
-                <li>Membres</li>
-                <li>Profil</li>
-                <li>Forum</li>
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container-fluid">
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Accueil<span class="sr-only">(current)</span></a></li>
+                <li><a href="#">Séries</a></li>
+                <li><a href="#">Membres</a></li>
+                <li><a href="#">Profil</a></li>
+                <li><a href="#">Forum</a></li>
             </ul>
             <a href="#" class="container">Inscription / connexion</a>
-        </nav>
-    </div>
-    <!-- Barre de recherche -->
-    <div class="container-fluid">
-        <div class="container">
-            <input type="text" placeholder="Rechercher une série"/>
-            <button type="submit">Rechercher</button>
         </div>
-    </div>
+    </nav>
+
+
+
 </header>
 
 {% block body %}{% endblock %}
@@ -63,24 +72,27 @@
 <!-- Footer -->
 <footer>
     <!-- Barre de menus -->
-    <div class="container-fluid">
-        <nav class="container">
-            <ul>
-                <li>Accueil</li>
-                <li>Séries</li>
-                <li>Membres</li>
-                <li>Profil</li>
-                <li>Forum</li>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <ul class="nav navbar-nav">
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Séries</a></li>
+                <li><a href="#">Membres</a></li>
+                <li><a href="#">Profil</a></li>
+                <li><a href="#">Forum</a></li>
             </ul>
-        </nav>
+        </div>
+
         <!-- Icônes réseaux sociaux -->
         <div class="container">
             <figure>
-                <img src="" alt="facebook" />
-                <img src="" alt="twitter" />
-                <img src="" alt="googlePlus" />
+                <a href="#"><img src="..\web\bundles\appBundle\images\facebook.png" alt="facebook" /></a>
+                <a href="#"><img src="..\web\bundles\appBundle\images\twitter.png" alt="twitter" /></a>
+                <a href="#"><img src="..\web\bundles\appBundle\images\googlePlus.png" alt="googlePlus" /></a>
             </figure>
         </div>
+
         <!-- Mentions légales / Plan du site / Contact -->
         <div class="container">
             <span>Copyright 2015-2016 by Team IMIE</span>
@@ -88,7 +100,7 @@
             <a href="#">Plan du site</a>
             <a href="#">Contact</a>
         </div>
-    </div>
+    </nav>
 </footer>
 
 <!-- jQuery first, then Bootstrap JS -->
