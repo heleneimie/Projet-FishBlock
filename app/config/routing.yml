@@ -1,8 +1,3 @@
-serie:
-    resource: "@SerieBundle/Controller/"
-    type:     annotation
-    prefix:   /
-
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
