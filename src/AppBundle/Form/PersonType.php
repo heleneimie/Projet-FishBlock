@@ -19,7 +19,7 @@ class PersonType extends AbstractType
             ->add('firstname')
             ->add('lastname')
             ->add('bio')
-            ->add('serie', EntityType::class, ['class' =>AppBundle::Serie, 'choice_label' => 'title'])
+            ->add('serie', EntityType::class, ['class' =>'AppBundle:Serie', 'choice_label' => 'title'])
         ;
     }
     

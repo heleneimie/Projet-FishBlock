@@ -2,9 +2,12 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\AppBundle;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+
 
 class SerieType extends AbstractType
 {
@@ -20,7 +23,7 @@ class SerieType extends AbstractType
             ->add('actors')
             ->add('characters')
             ->add('seasons')
-            ->add('episodes')
+            ->add('episodes', EntityType::class, ['class' =>'AppBundle:Episode', 'choice_label' => 'title'])
             ->add('summary')
             ->add('comments')
             ->add('note')
