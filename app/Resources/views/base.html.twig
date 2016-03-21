@@ -49,21 +49,35 @@
         </form>
     </div>
     <!-- Barre de menus -->
-    <nav class="navbar navbar-default navbar-static-top">
-        <div class="container-fluid">
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Accueil<span class="sr-only">(current)</span></a></li>
-                <li><a href="#">Séries</a></li>
-                <li><a href="#">Membres</a></li>
-                <li><a href="#">Profil</a></li>
-                <li><a href="#">Forum</a></li>
-            </ul>
-            <a href="#" class="container">Inscription / connexion</a>
-        </div>
-    </nav>
+    {% block navbar_top %}
+    {% include 'navbar.html.twig' %}
+    {% endblock %}
+    <div>
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+            <a href="{{ path('fos_user_security_logout') }}">
+                {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+            </a>
+        {% else %}
+            Bienvenue Invité
+            <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+             /
+            <a href="{{ path('fos_user_registration_register') }}">S'enregistrer</a>
+        {% endif %}
+    </div>
 
+    {% for type, messages in app.session.flashBag.all %}
+        {% for message in messages %}
+            <div class="{{ type }}">
+                {{ message|trans({}, 'FOSUserBundle') }}
+            </div>
+        {% endfor %}
+    {% endfor %}
 
+    <div>
+        {% block fos_user_content %}
+        {% endblock fos_user_content %}
+    </div>
 
 </header>
 
@@ -73,16 +87,9 @@
 <footer>
     <!-- Barre de menus -->
     <nav class="navbar navbar-default">
-        <div class="container">
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <ul class="nav navbar-nav">
-                <li><a href="#">Accueil</a></li>
-                <li><a href="#">Séries</a></li>
-                <li><a href="#">Membres</a></li>
-                <li><a href="#">Profil</a></li>
-                <li><a href="#">Forum</a></li>
-            </ul>
-        </div>
+        {% block navbar_bottom %}
+            {% include 'navbar.html.twig' %}
+        {% endblock %}
 
         <!-- Icônes réseaux sociaux -->
         <div class="container">
