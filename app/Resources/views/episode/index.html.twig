@@ -1,17 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Episode list</h1>
+    <h1>Liste des épisodes</h1>
 
     <table>
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Title</th>
-                <th>Airdate</th>
-                <th>Length</th>
-                <th>Season</th>
-                <th>Summary</th>
+                <th>Titre de l'épisode</th>
+                <th>Date de diffusion</th>
+                <th>Durée (min)</th>
+                <th>Saison</th>
+                <th>Synopsis</th>
                 <th>Note</th>
                 <th>Actions</th>
             </tr>
@@ -29,10 +29,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('episode_show', { 'id': episode.id }) }}">show</a>
+                            <a href="{{ path('episode_show', { 'id': episode.id }) }}">Détail</a>
                         </li>
                         <li>
-                            <a href="{{ path('episode_edit', { 'id': episode.id }) }}">edit</a>
+                            <a href="{{ path('episode_edit', { 'id': episode.id }) }}">Modifier</a>
                         </li>
                     </ul>
                 </td>
@@ -43,7 +43,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('episode_new') }}">Create a new entry</a>
+            <a href="{{ path('episode_new') }}">Proposer un épisode</a>
         </li>
     </ul>
 {% endblock %}

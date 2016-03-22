@@ -1,20 +1,26 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Episode edit</h1>
+    <h1>Modification d'un épisode</h1>
 
     {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
+    {{ form_row(edit_form.title, {'label': 'Titre de l\'épisode'}) }}
+    {{ form_row(edit_form.airdate, {'label': 'Date'}) }}
+    {{ form_row(edit_form.length, {'label': 'Durée (min)'}) }}
+    {{ form_row(edit_form.season, {'label': 'Saison'}) }}
+    {{ form_row(edit_form.summary, {'label': 'Synopsis'}) }}
+    {{ form_row(edit_form.note, {'label': 'Note'}) }}
+    {{ form_row(edit_form.serie, {'label': 'Série'}) }}
+    <input type="submit" value="Modifier" />
     {{ form_end(edit_form) }}
 
     <ul>
         <li>
-            <a href="{{ path('episode_index') }}">Back to the list</a>
+            <a href="{{ path('episode_index') }}">Retour à la liste des épisodes</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+            <input type="submit" value="Supprimer">
             {{ form_end(delete_form) }}
         </li>
     </ul>

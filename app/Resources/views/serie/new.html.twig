@@ -1,16 +1,25 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Serie creation</h1>
+    <h1>Proposition d'une série</h1>
 
     {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+        {{ form_row(form.title, {'label': 'Titre de la série'}) }}
+        {{ form_row(form.nationality, {'label': 'Nationalité'}) }}
+        {{ form_row(form.showrunner, {'label': 'Créateur de la série'}) }}
+        {{ form_row(form.actors, {'label': 'Acteurs'}) }}
+        {{ form_row(form.characters, {'label': 'Personnages'}) }}
+        {{ form_row(form.seasons, {'label': 'Saisons'}) }}
+        {#{{ form_row(form.episodes, {'label': 'Episodes'}) }}#}
+        {{ form_row(form.summary, {'label': 'Synopsis'}) }}
+        {{ form_row(form.comments, {'label': 'Commentaires'}) }}
+        {{ form_row(form.note, {'label': 'Note'}) }}
+        <input type="submit" value="Proposer" />
     {{ form_end(form) }}
 
     <ul>
         <li>
-            <a href="{{ path('serie_index') }}">Back to the list</a>
+            <a href="{{ path('serie_index') }}">Retour à la liste des séries</a>
         </li>
     </ul>
 {% endblock %}

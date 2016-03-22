@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Serie</h1>
+    <h1>Série</h1>
 
     <table>
         <tbody>
@@ -10,32 +10,36 @@
                 <td>{{ serie.id }}</td>
             </tr>
             <tr>
-                <th>Nationality</th>
+                <th>Titre</th>
+                <td>{{ serie.title }}</td>
+            </tr>
+            <tr>
+                <th>Nationalité</th>
                 <td>{{ serie.nationality }}</td>
             </tr>
             <tr>
-                <th>Showrunner</th>
+                <th>Créateur de la série</th>
                 <td>{{ serie.showrunner }}</td>
             </tr>
             <tr>
-                <th>Actors</th>
+                <th>Acteurs</th>
                 <td>{{ serie.actors }}</td>
             </tr>
             <tr>
-                <th>Characters</th>
+                <th>Personnages</th>
                 <td>{{ serie.characters }}</td>
             </tr>
             <tr>
-                <th>Seasons</th>
+                <th>Saisons</th>
                 <td>{{ serie.seasons }}</td>
             </tr>
 
             <tr>
-                <th>Summary</th>
+                <th>Synopsis</th>
                 <td>{{ serie.summary }}</td>
             </tr>
             <tr>
-                <th>Comments</th>
+                <th>Commentaires</th>
                 <td>{{ serie.comments }}</td>
             </tr>
             <tr>
@@ -47,14 +51,17 @@
 
     <ul>
         <li>
-            <a href="{{ path('serie_index') }}">Back to the list</a>
+            <a href="{{ path('episode_new', { 'id': serie.id }) }}">Ajouter un épisode</a>
         </li>
         <li>
-            <a href="{{ path('serie_edit', { 'id': serie.id }) }}">Edit</a>
+            <a href="{{ path('serie_index') }}">Retour à la liste des séries</a>
+        </li>
+        <li>
+            <a href="{{ path('serie_edit', { 'id': serie.id }) }}">Modifier</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Supprimer">
             {{ form_end(delete_form) }}
         </li>
     </ul>

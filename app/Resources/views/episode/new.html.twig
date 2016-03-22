@@ -1,16 +1,22 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Episode creation</h1>
+    <h1>Proposition d'un épisode pour la série </h1>
 
     {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+        {{ form_row(form.title, {'label': 'Titre de l\'épisode'}) }}
+        {{ form_row(form.airdate, {'label': 'Date'}) }}
+        {{ form_row(form.length, {'label': 'Durée (min)'}) }}
+        {{ form_row(form.season, {'label': 'Saison'}) }}
+        {{ form_row(form.summary, {'label': 'Synopsis'}) }}
+        {{ form_row(form.note, {'label': 'Note'}) }}
+        {#{{ form_row(form.serie, {'label': 'Série'}) }}#}
+        <input type="submit" value="Proposer" />
     {{ form_end(form) }}
 
     <ul>
         <li>
-            <a href="{{ path('episode_index') }}">Back to the list</a>
+            <a href="{{ path('episode_index') }}">Retour à la liste des épisodes</a>
         </li>
     </ul>
 {% endblock %}
