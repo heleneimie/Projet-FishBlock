@@ -23,7 +23,7 @@ class EpisodeType extends AbstractType
             ->add('season')
             ->add('summary')
             ->add('note')
-            ->add('serie', EntityType::class, ['class'=>'AppBundle:Serie', 'choice_label'=>'title'])
+//            ->add('serie', EntityType::class, ['class'=>'AppBundle:Serie', 'choice_label'=>'title'])
         ;
     }
     
