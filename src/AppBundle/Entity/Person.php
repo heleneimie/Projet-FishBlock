@@ -42,6 +42,12 @@ class Person
      */
     private $bio;
 
+    /**
+     * @var array
+     *
+     * @ORM\OneToMany(targetEntity="Role", mappedBy="person")
+     */
+    private $role;
 
     /**
      * Get id
@@ -120,5 +126,28 @@ class Person
     public function getBio()
     {
         return $this->bio;
+    }
+
+    /**
+     * Set role
+     *
+     * @param string $role
+     * @return Person
+     */
+    public function setRole($role)
+    {
+        $this->role = $role;
+
+        return $this;
+    }
+
+    /**
+     * Get role
+     *
+     * @return string
+     */
+    public function getRole()
+    {
+        return $this->role;
     }
 }
