@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Serie;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -39,9 +40,10 @@ class EpisodeController extends Controller
      * @Route("/new", name="episode_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, Serie $serie)
     {
         $episode = new Episode();
+        $episode->setSerie($serie);
         $form = $this->createForm('AppBundle\Form\EpisodeType', $episode);
         $form->handleRequest($request);
 
