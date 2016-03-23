@@ -1,20 +1,30 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Serie edit</h1>
+    <h1>Modification d'une série</h1>
 
     {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
+        {#{{ form_widget(edit_form) }}#}
+    {{ form_row(edit_form.title, {'label': 'Titre de la série'}) }}
+    {{ form_row(edit_form.nationality, {'label': 'Nationalité'}) }}
+    {{ form_row(edit_form.showrunner, {'label': 'Créateur de la série'}) }}
+    {{ form_row(edit_form.actors, {'label': 'Acteurs'}) }}
+    {{ form_row(edit_form.characters, {'label': 'Personnages'}) }}
+    {{ form_row(edit_form.seasons, {'label': 'Saisons'}) }}
+    {{ form_row(edit_form.episodes, {'label': 'Episodes'}) }}
+    {{ form_row(edit_form.summary, {'label': 'Synopsis'}) }}
+    {{ form_row(edit_form.comments, {'label': 'Commentaires'}) }}
+    {{ form_row(edit_form.note, {'label': 'Note'}) }}
+        <input type="submit" value="Modifier" />
     {{ form_end(edit_form) }}
 
     <ul>
         <li>
-            <a href="{{ path('serie_index') }}">Back to the list</a>
+            <a href="{{ path('serie_index') }}">Retour à la liste des séries</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Supprimer">
             {{ form_end(delete_form) }}
         </li>
     </ul>

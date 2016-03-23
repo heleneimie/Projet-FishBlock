@@ -1,13 +1,11 @@
-<nav class="navbar navbar-default navbar-static-top">
-    <div class="container-fluid">
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <ul class="nav navbar-nav">
-            <li class="active"><a href={{ path('homepage') }}>Accueil<span class="sr-only">(current)</span></a></li>
-            <li><a href={{ path('serie_index') }}>Séries</a></li>
-            <li><a href="#">Membres</a></li>
-            <li><a href="#">Profil</a></li>
-            <li><a href="#">Forum</a></li>
-        </ul>
-        {#<a href={{ path('fos_user_security_login') }} class="container">Inscription / connexion</a>#}
-    </div>
-</nav>
+<!-- Collect the nav links, forms, and other content for toggling -->
+
+    <ul class="nav navbar-nav">
+        <li><a href={{ path('homepage') }}><span class="glyphicon glyphicon-home"></span>  ACCUEIL</a></li>
+        <li><a href={{ path('serie_index') }}>SERIES</a></li>
+        <li><a href="#">MEMBRES</a></li>
+        <li><a href="#">PROFIL</a></li>
+        <li><a href="#">FORUM</a></li>
+    </ul>
+
+{#<a href={{ path('fos_user_security_login') }} class="container">Inscription / connexion</a>#}

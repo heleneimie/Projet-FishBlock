@@ -18,6 +18,7 @@ class SerieType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('title')
             ->add('nationality')
             ->add('showrunner')
             ->add('actors')

@@ -10,23 +10,23 @@
                 <td>{{ episode.id }}</td>
             </tr>
             <tr>
-                <th>Title</th>
+                <th>Titre de l'épisode</th>
                 <td>{{ episode.title }}</td>
             </tr>
             <tr>
-                <th>Airdate</th>
+                <th>Date de diffusion</th>
                 <td>{% if episode.airdate %}{{ episode.airdate|date('Y-m-d') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Length</th>
+                <th>Durée (min)</th>
                 <td>{{ episode.length }}</td>
             </tr>
             <tr>
-                <th>Season</th>
+                <th>Saison</th>
                 <td>{{ episode.season }}</td>
             </tr>
             <tr>
-                <th>Summary</th>
+                <th>Synopsis</th>
                 <td>{{ episode.summary }}</td>
             </tr>
             <tr>
@@ -38,14 +38,14 @@
 
     <ul>
         <li>
-            <a href="{{ path('episode_index') }}">Back to the list</a>
+            <a href="{{ path('episode_index') }}">Retour à la liste des épisodes</a>
         </li>
         <li>
-            <a href="{{ path('episode_edit', { 'id': episode.id }) }}">Edit</a>
+            <a href="{{ path('episode_edit', { 'id': episode.id }) }}">Modifier</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Supprimer">
             {{ form_end(delete_form) }}
         </li>
     </ul>

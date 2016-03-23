@@ -4,7 +4,7 @@
     <!-- Required meta tags always come first -->
     <meta charset="UTF-8" />
     <title>{% block title %}Welcome - Projet FishBlock{% endblock %}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1 shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <!-- Bootstrap CSS -->
@@ -15,107 +15,136 @@
     {#<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">#}
 
     <!-- CSS stylesheet -->
-    {#<link rel="stylesheet"  type="text/css" href="{{ 'css/styles.css' }}">#}
+    {#<link href="{{ asset('web/bundle/appBundle/css/styles.css') }}" rel="stylesheet" type="text/css" />#}
     {% block stylesheets %}{% endblock %}
 
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 </head>
 
 <body>
 <!-- Header -->
-<header>
-    <!-- Logo / Langues -->
-    <div class="container">
+<header class="row">
+    <!-- Logo -->
+    <div class="col-lg-12">
+        {#<img class="logo" src="img/site-logo-6.jpg">#}
         <figure>
-            <img src="..\web\bundles\appBundle\images\logo_PassionFiction.jpg" alt="logo" width="120"/>
+            <img class="logo" src="#" alt="logo" width="120"/>
         </figure>
-        <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                   aria-expanded="false">Langues <span class="caret"></span></a>
-                <ul id="lang" class="dropdown-menu">
-                    <li><a href="#">Français</a></li>
-                    <li><a href="#">English</a></li>
+    </div>
+
+    <nav class="navbar navbar-default navbar-inverse">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse">
+
+                <!-- Barre de menus -->
+                {% block navbar_top %}
+                    {% include 'navbar.html.twig' %}
+                {% endblock %}
+
+                <!-- Barre de recherche -->
+                <form class="navbar-form navbar-right" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Rechercher">
+                    </div>
+                    <button type="submit" class="btn btn-default">OK</button>
+                </form>
+
+
+                <ul class="nav navbar-nav navbar-left">
+
+                    <!-- Connexion / Inscription -->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Connexion<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ path('fos_user_security_login') }}">Connexion</a></li>
+                            <li><a href="{{ path('fos_user_registration_register') }}">Inscription</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Langues -->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Langue <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Français</a></li>
+                            <li><a href="#">English</a></li>
+                        </ul>
+                    </li>
+
                 </ul>
-            </li>
-        </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
 
-        <!-- Barre de recherche -->
-        <form class="navbar-form navbar-left" role="search">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Rechercher une série">
+    <!-- Barre de recherche centrale -->
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <div id="imaginary_container">
+                <div class="input-group stylish-input-group">
+                    <input type="text" class="form-control" placeholder="Rechercher une série" />
+                    <div class="input-group-addon">
+                        <button type="submit" class="glyphicon glyphicon-search"></button>
+                        {#A modifier : renvoyer vers la page de recherche avancée#}
+                        <a href="{{ path('serie_index') }}">Recherche avancée</a>
+                    </div>
+                </div>
             </div>
-            <button type="submit" class="btn btn-default">Rechercher</button>
-        </form>
-    </div>
-    <!-- Barre de menus -->
-    {% block navbar_top %}
-    {% include 'navbar.html.twig' %}
-    {% endblock %}
-    <div>
-        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-            {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
-            <a href="{{ path('fos_user_security_logout') }}">
-                {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-            </a>
-        {% else %}
-            Bienvenue Invité
-            <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-             /
-            <a href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
-        {% endif %}
-    </div>
-
-    {% for type, messages in app.session.flashBag.all %}
-        {% for message in messages %}
-            <div class="{{ type }}">
-                {{ message|trans({}, 'FOSUserBundle') }}
-            </div>
-        {% endfor %}
-    {% endfor %}
-
-    <div>
-        {% block fos_user_content %}
-        {% endblock fos_user_content %}
+        </div>
     </div>
 
 </header>
+
+<!-- Vérification authentification user -->
+<div>
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+        <a href="{{ path('fos_user_security_logout') }}">
+            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+        </a>
+    {% else %}
+        Bienvenue Invité(e)
+        <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+        /
+        <a href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
+    {% endif %}
+</div>
+
+{% for type, messages in app.session.flashBag.all %}
+    {% for message in messages %}
+        <div class="{{ type }}">
+            {{ message|trans({}, 'FOSUserBundle') }}
+        </div>
+    {% endfor %}
+{% endfor %}
 
 {% block body %}{% endblock %}
 
 <!-- Footer -->
 <footer>
-    <!-- Barre de menus -->
-    <nav class="navbar navbar-default">
-        {% block navbar_bottom %}
-            {% include 'navbar.html.twig' %}
-        {% endblock %}
+    <div class="row">
+        <nav class="navbar navbar-default navbar-inverse navbar-fixed-bottom">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse">
+                    <!-- Barre de menus -->
+                    {% block navbar_bottom %}
+                        {% include 'navbar.html.twig' %}
+                    {% endblock %}
+                </div>
 
-        <!-- Icônes réseaux sociaux -->
-        <div class="container">
-            <figure>
-                <a href="#"><img src="..\web\bundles\appBundle\images\facebook.png" alt="facebook" /></a>
-                <a href="#"><img src="..\web\bundles\appBundle\images\twitter.png" alt="twitter" /></a>
-                <a href="#"><img src="..\web\bundles\appBundle\images\googlePlus.png" alt="googlePlus" /></a>
-            </figure>
-        </div>
-
-        <!-- Mentions légales / Plan du site / Contact -->
-        <div class="container">
-            <span>Copyright 2015-2016 by Team IMIE</span>
-            <a href="#">Mentions légales</a>
-            <a href="#">Plan du site</a>
-            <a href="#">Contact</a>
-        </div>
-    </nav>
+                <!-- Réseaux sociaux / Mentions légales / Plan du site / Contact -->
+                {% block footer %}
+                    {% include 'footer.html.twig' %}
+                {% endblock %}
+            </div>
+        </nav>
+    </div>
 </footer>
 
 <!-- jQuery first, then Bootstrap JS -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"
-        integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+        integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
 
 {% block javascripts %}{% endblock %}
 </body>
 </html>
-
