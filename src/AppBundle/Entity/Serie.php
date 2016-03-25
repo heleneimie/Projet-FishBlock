@@ -30,32 +30,19 @@ class Serie
     private $title;
 
     /**
-     * @var string
+     * @var array
      *
-     * @ORM\Column(name="nationality", type="string", length=75)
-     */
-    private $nationality;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="showrunner", type="string", length=255)
-     */
-    private $showrunner;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="actors", type="string", length=255)
+     * @ORM\ManyToMany(targetEntity="Actor", inversedBy="series")
+     * @ORM\JoinTable(name="series_actors")
      */
     private $actors;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="characters", type="string", length=255, nullable=true)
+     * @ORM\Column(name="genre", type="string")
      */
-    private $characters;
+    private $genre;
 
     /**
      * @var int
@@ -95,7 +82,7 @@ class Serie
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -103,95 +90,13 @@ class Serie
     }
 
     /**
-     * Set nationality
-     *
-     * @param string $nationality
-     * @return Serie
-     */
-    public function setNationality($nationality)
-    {
-        $this->nationality = $nationality;
-
-        return $this;
-    }
-
-    /**
-     * Get nationality
-     *
-     * @return string 
-     */
-    public function getNationality()
-    {
-        return $this->nationality;
-    }
-
-    /**
-     * Set showrunner
-     *
-     * @param string $showrunner
-     * @return Serie
-     */
-    public function setShowrunner($showrunner)
-    {
-        $this->showrunner = $showrunner;
-
-        return $this;
-    }
-
-    /**
-     * Get showrunner
-     *
-     * @return string 
-     */
-    public function getShowrunner()
-    {
-        return $this->showrunner;
-    }
-
-    /**
-     * Set actors
-     *
-     * @param string $actors
-     * @return Serie
-     */
-    public function setActors($actors)
-    {
-        $this->actors = $actors;
-
-        return $this;
-    }
-
-    /**
      * Get actors
      *
-     * @return string 
+     * @return string
      */
     public function getActors()
     {
         return $this->actors;
-    }
-
-    /**
-     * Set characters
-     *
-     * @param string $characters
-     * @return Serie
-     */
-    public function setCharacters($characters)
-    {
-        $this->characters = $characters;
-
-        return $this;
-    }
-
-    /**
-     * Get characters
-     *
-     * @return string 
-     */
-    public function getCharacters()
-    {
-        return $this->characters;
     }
 
     /**
@@ -210,7 +115,7 @@ class Serie
     /**
      * Get seasons
      *
-     * @return integer 
+     * @return integer
      */
     public function getSeasons()
     {
@@ -233,7 +138,7 @@ class Serie
     /**
      * Get episodes
      *
-     * @return string 
+     * @return string
      */
     public function getEpisodes()
     {
@@ -256,7 +161,7 @@ class Serie
     /**
      * Get summary
      *
-     * @return string 
+     * @return string
      */
     public function getSummary()
     {
@@ -279,7 +184,7 @@ class Serie
     /**
      * Get comments
      *
-     * @return string 
+     * @return string
      */
     public function getComments()
     {
@@ -302,7 +207,7 @@ class Serie
     /**
      * Get note
      *
-     * @return integer 
+     * @return integer
      */
     public function getNote()
     {
@@ -313,7 +218,31 @@ class Serie
      */
     public function __construct()
     {
+        $this->actors = new ArrayCollection();
         $this->episodes = new ArrayCollection();
+    }
+
+    /**
+     * Add actor
+     *
+     * @param \AppBundle\Entity\Actor $actor
+     * @return Serie
+     */
+    public function addActor(Actor $actor)
+    {
+        $this->actors[] = $actor;
+
+        return $this;
+    }
+
+    /**
+     * Remove actor
+     *
+     * @param \AppBundle\Entity\Actor $actor
+     */
+    public function removeActor(Actor $actor)
+    {
+        $this->actors->removeElement($actor);
     }
 
     /**
@@ -360,5 +289,28 @@ class Serie
     public function getTitle()
     {
         return $this->title;
+    }
+
+    /**
+     * Set genre
+     *
+     * @param string $genre
+     * @return Serie
+     */
+    public function setGenre($genre)
+    {
+        $this->genre = $genre;
+
+        return $this;
+    }
+
+    /**
+     * Get genre
+     *
+     * @return string 
+     */
+    public function getGenre()
+    {
+        return $this->genre;
     }
 }
