@@ -33,6 +33,19 @@ class PostController extends Controller
         ));
     }
 
+    public function recentPostsAction($max = 3)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $posts = $em->getRepository('AppBundle:Post')->findAll();
+
+
+        return $this->render(
+            'post/recent_list.html.twig',
+            array('posts' => $posts)
+        );
+    }
+
     /**
      * Creates a new Post entity.
      *

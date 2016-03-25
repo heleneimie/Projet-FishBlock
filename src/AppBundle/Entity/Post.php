@@ -166,6 +166,7 @@ class Post
     {
         return $this->language;
     }
+
     public function __toString()
     {
         return $this->getContent();
