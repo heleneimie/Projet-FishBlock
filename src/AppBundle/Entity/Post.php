@@ -38,22 +38,35 @@ class Post
     /**
      * @var int
      *
-     * @ORM\Column(name="note", type="integer")
+     * @ORM\Column(name="note", type="integer", nullable=true)
      */
     private $note;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="language", type="string")
+     * @ORM\Column(name="language", type="string", options={"default":"fr"})
      */
     private $language;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="author", type="string", options={"default":"anonymous"})
+     */
+    private $author;
+
+    public function __construct()
+    {
+        $this->date = new \DateTime();
+        $this->author = "Djaisonne";
+        $this->language = "fr";
+    }
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -63,15 +76,15 @@ class Post
     /**
      * Set date
      *
-     * @param \DateTime $date
+     * @param  \Datetime $date
      * @return Post
      */
     public function setDate($date)
     {
         $this->date = $date;
-
         return $this;
     }
+
 
     /**
      * Get date
@@ -82,6 +95,8 @@ class Post
     {
         return $this->date;
     }
+
+
 
     /**
      * Set content
@@ -150,5 +165,9 @@ class Post
     public function getLanguage()
     {
         return $this->language;
+    }
+    public function __toString()
+    {
+        return $this->getContent();
     }
 }

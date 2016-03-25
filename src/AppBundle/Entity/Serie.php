@@ -59,9 +59,9 @@ class Serie
     private $episodes;
 
     /**
-     * @var string
      *
-     * @ORM\Column(name="summary", type="string", length=255, nullable=true)
+     * @ORM\OneToOne(targetEntity="Post")
+     * @ORM\JoinColumn(name="post_id", referencedColumnName="id")
      */
     private $summary;
 

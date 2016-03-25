@@ -12,15 +12,13 @@ class LoadSerieData implements FixtureInterface
     public function load(ObjectManager $manager)
     {
         $actors = $manager->getRepository('AppBundle:Actor')->findAll();
-        $summary = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad beatae consequatur deleniti deserunt
-        dolor dolorem dolores dolorum error, inventore laborum molestias mollitia necessitatibus nobis,
-         officiis repellendus saepe sapiente velit veniam.";
+        $summaries = $manager->getRepository('AppBundle:Post')->findAll();
         $serie = new Serie;
         $serie->setTitle('Arrow')
             ->setSeasons(1)
             ->setNote(4)
             ->setGenre('Romance')
-            ->setSummary($summary)
+            ->setSummary($summaries[0])
             ->setActors($actors);
         $manager->persist($serie);
         $manager->flush();
@@ -30,7 +28,7 @@ class LoadSerieData implements FixtureInterface
             ->setSeasons(5)
             ->setNote(7)
             ->setGenre('Drama')
-            ->setSummary($summary)
+            ->setSummary($summaries[1])
             ->setActors($actors);
         $manager->persist($serie);
         $manager->flush();
@@ -40,7 +38,7 @@ class LoadSerieData implements FixtureInterface
             ->setSeasons(25)
             ->setNote(3)
             ->setGenre('Science Fiction')
-            ->setSummary($summary)
+            ->setSummary($summaries[2])
             ->setActors($actors);
         $manager->persist($serie);
         $manager->flush();
