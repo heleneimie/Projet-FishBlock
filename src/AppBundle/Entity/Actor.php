@@ -47,7 +47,7 @@ class Actor
     /**
      * @var array
      *
-     * @ORM\ManyToMany(targetEntity="Serie", mappedBy="actors")
+     * @ORM\ManyToMany(targetEntity="Serie", mappedBy="actors", nullable=true)
      */
     private $series;
 

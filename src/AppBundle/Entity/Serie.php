@@ -230,6 +230,7 @@ class Serie
      */
     public function addActor(Actor $actor)
     {
+        $actor->addSerie($this);
         $this->actors[] = $actor;
 
         return $this;
