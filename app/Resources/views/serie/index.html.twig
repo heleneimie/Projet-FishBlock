@@ -6,6 +6,7 @@
     <table>
         <thead>
             <tr>
+
                 <th>Id</th>
                 <th>Titre</th>
                 <th>Nationalité</th>
@@ -23,6 +24,7 @@
         <tbody>
         {% for serie in series %}
             <tr>
+
                 <td><a href="{{ path('serie_show', { 'id': serie.id }) }}">{{ serie.id }}</a></td>
                 <td>{{ serie.title }}</td>
                 <td>{{ serie.nationality }}</td>
