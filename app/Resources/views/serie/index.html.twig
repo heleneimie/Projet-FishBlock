@@ -9,10 +9,7 @@
 
                 <th>Id</th>
                 <th>Titre</th>
-                <th>Nationalité</th>
-                <th>Créateur de la série</th>
-                <th>Acteurs</th>
-                <th>Personnages</th>
+                <th>Genre</th>
                 <th>Saisons</th>
                 {#<th>Episodes</th>#}
                 <th>Synopsis</th>
@@ -27,10 +24,7 @@
 
                 <td><a href="{{ path('serie_show', { 'id': serie.id }) }}">{{ serie.id }}</a></td>
                 <td>{{ serie.title }}</td>
-                <td>{{ serie.nationality }}</td>
-                <td>{{ serie.showrunner }}</td>
-                <td>{{ serie.actors }}</td>
-                <td>{{ serie.characters }}</td>
+                <td>{{ serie.genre }}</td>
                 <td>{{ serie.seasons }}</td>
                 {#<td>{{ serie.episodes }}</td>#}
                 <td>{{ serie.summary }}</td>

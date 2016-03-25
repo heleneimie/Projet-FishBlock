@@ -19,7 +19,27 @@ class LoadSerieData implements FixtureInterface
         $serie->setTitle('Arrow')
             ->setSeasons(1)
             ->setNote(4)
+            ->setGenre('Romance')
+            ->setSummary($summary)
+            ->setActors($actors);
+        $manager->persist($serie);
+        $manager->flush();
+
+        $serie2 = new Serie;
+        $serie2->setTitle('Breaking Bad')
+            ->setSeasons(5)
+            ->setNote(7)
             ->setGenre('Drama')
+            ->setSummary($summary)
+            ->setActors($actors);
+        $manager->persist($serie);
+        $manager->flush();
+
+        $serie3 = new Serie;
+        $serie3->setTitle('Mon petit poney')
+            ->setSeasons(25)
+            ->setNote(3)
+            ->setGenre('Science Fiction')
             ->setSummary($summary)
             ->setActors($actors);
         $manager->persist($serie);

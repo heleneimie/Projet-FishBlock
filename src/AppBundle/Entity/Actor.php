@@ -40,6 +40,13 @@ class Actor
     /**
      * @var string
      *
+     * @ORM\Column(name="role", type="string", length=255)
+     */
+    private $role;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="picture", type="string", length=255, nullable=true)
      */
     private $picture;
@@ -47,7 +54,7 @@ class Actor
     /**
      * @var array
      *
-     * @ORM\ManyToMany(targetEntity="Serie", mappedBy="actors")
+     * @ORM\ManyToMany(targetEntity="Serie", mappedBy="actors", cascade="persist")
      */
     private $series;
 
@@ -106,6 +113,29 @@ class Actor
     public function getLastname()
     {
         return $this->lastname;
+    }
+
+    /**
+     * Set role
+     *
+     * @param string $role
+     * @return Actor
+     */
+    public function setRole($role)
+    {
+        $this->role = $role;
+
+        return $this;
+    }
+
+    /**
+     * Get role
+     *
+     * @return string
+     */
+    public function getRole()
+    {
+        return $this->role;
     }
 
     /**
@@ -170,4 +200,8 @@ class Actor
         $this->series->removeElement($serie);
     }
 
+    public function __toString()
+    {
+        return $this->getFirstname()." ".$this->getLastname()." joue ".$this->getRole();
+    }
 }

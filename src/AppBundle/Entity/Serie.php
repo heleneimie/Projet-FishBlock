@@ -61,7 +61,7 @@ class Serie
     /**
      * @var string
      *
-     * @ORM\Column(name="summary", type="string", length=255, nullable=true, unique=true)
+     * @ORM\Column(name="summary", type="string", length=255, nullable=true)
      */
     private $summary;
 

@@ -14,20 +14,12 @@
                 <td>{{ serie.title }}</td>
             </tr>
             <tr>
-                <th>Nationalité</th>
-                <td>{{ serie.nationality }}</td>
-            </tr>
-            <tr>
-                <th>Créateur de la série</th>
-                <td>{{ serie.showrunner }}</td>
-            </tr>
-            <tr>
                 <th>Acteurs</th>
-                <td>{{ serie.actors }}</td>
-            </tr>
-            <tr>
-                <th>Personnages</th>
-                <td>{{ serie.characters }}</td>
+                <td><ul>{% for actor in serie.actors %}
+                        <li>{{ actor }}</li>
+                    {% endfor %}
+                    </ul>
+                </td>
             </tr>
             <tr>
                 <th>Saisons</th>

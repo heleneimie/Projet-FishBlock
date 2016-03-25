@@ -17,7 +17,8 @@ class LoadActorData implements FixtureInterface
         for ($i=0;$i<5;$i++){
             $actor = new Actor;
             $actor->setFirstname($actFirstames[$i])
-                ->setLastname($actLastnames[$i]);
+                ->setLastname($actLastnames[$i])
+                ->setRole("Un poney");
 
             $manager->persist($actor);
             $manager->flush();
