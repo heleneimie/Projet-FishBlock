@@ -237,6 +237,21 @@ class Serie
     }
 
     /**
+     * Set actors
+     *
+     */
+    public function setActors($actors)
+    {
+
+        foreach($actors as $actor){
+            $actor->addSerie($this);
+        }
+        $this->actors = $actors;
+
+        return $this;
+    }
+
+    /**
      * Remove actor
      *
      * @param \AppBundle\Entity\Actor $actor
