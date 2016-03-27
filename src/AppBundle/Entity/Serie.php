@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * Serie
@@ -78,6 +79,19 @@ class Serie
      * @ORM\Column(name="note", type="integer", nullable=true)
      */
     private $note;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="author", type="string", nullable=true)
+     */
+    private $author;
+
+    /**
+     * @var DateTime
+     * @ORM\Column(name="date", type="date")
+     */
+    private $date;
 
     /**
      * Get id
@@ -218,6 +232,8 @@ class Serie
      */
     public function __construct()
     {
+        $this->date = new \DateTime();
+        $this->author = "Djaisonne";
         $this->actors = new ArrayCollection();
         $this->episodes = new ArrayCollection();
     }
@@ -328,5 +344,25 @@ class Serie
     public function getGenre()
     {
         return $this->genre;
+    }
+
+    public function setDate($date)
+    {
+        $this->date = $date;
+    }
+
+    public function getDate()
+    {
+        return $this->date->format('d-m H:i');
+    }
+
+    public function setAuthor($author)
+    {
+        $this->author = $author;
+    }
+
+    public function getAuthor()
+    {
+        return $this->author;
     }
 }

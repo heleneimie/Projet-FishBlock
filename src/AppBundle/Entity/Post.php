@@ -94,7 +94,7 @@ class Post
      */
     public function getDate()
     {
-        return $this->date;
+        return $this->date->format("d-m H:i");
     }
 
 
@@ -165,6 +165,16 @@ class Post
     public function getLanguage()
     {
         return $this->language;
+    }
+
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+
+    public function setAuthor($author)
+    {
+        $this->author = $author;
     }
 
     public function __toString()

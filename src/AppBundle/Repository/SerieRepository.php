@@ -12,4 +12,16 @@ use Doctrine\ORM\EntityRepository;
  */
 class SerieRepository extends EntityRepository
 {
+    public function findRecentSeries($max){
+
+        $query = $this->getEntityManager()->createQueryBuilder();
+        return $query->select('s')
+            ->from('AppBundle:Serie','s')
+            ->orderBy('s.date','ASC')
+            ->setMaxResults($max)
+            ->getQuery();
+
+
+
+    }
 }

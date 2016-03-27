@@ -33,11 +33,11 @@ class PostController extends Controller
         ));
     }
 
-    public function recentPostsAction($max = 3)
+    public function recentPostsAction($max = 5)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $posts = $em->getRepository('AppBundle:Post')->findAll();
+        $posts = $em->getRepository('AppBundle:Post')->findRecentPosts($max)->getResult();
 
 
         return $this->render(

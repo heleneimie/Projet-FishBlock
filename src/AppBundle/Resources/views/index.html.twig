@@ -3,19 +3,8 @@
     <!-- Dernières séries proposées -->
     <section id="serie" class="row">
         <div class="col-lg-12">
-            <h3>Dernières séries :</h3>
-            <div class="col-lg-4">
-                <img id="mini" src="#"><br/>
-                <a href="#"><p>Game of Thrones</p></a>
-            </div>
-            <div class="col-lg-4">
-                <img id="mini" src="#"><br/>
-                <a href="#"><p>The Walking dead</p></a>
-            </div>
-            <div class="col-lg-4">
-                <img id="mini" src="#"><br/>
-                <a href="#"><p>Vikings</p></a>
-            </div>
+            <h3>Dernières séries ajoutés :</h3>
+            {{ render(controller('AppBundle:Serie:recentSeries',{ 'max': 3})) }}
             <a href={{ path('serie_index') }}><i class="glyphicon glyphicon-plus button pull-right">Voir plus de séries</i></a>
         </div>
     </section>
@@ -24,7 +13,7 @@
     <section id="comment" class="row">
         <div class="col-lg-12">
             <h3>Derniers commentaires :</h3>
-            {{ render(controller('AppBundle:Post:recentPosts',{ 'max': 3 })) }}
+            {{ render(controller('AppBundle:Post:recentPosts',{ 'max': 6 })) }}
             <a href="#"><i class="glyphicon glyphicon-plus button pull-right">Voir plus de commentaires</i></a>
         </div>
     </section>

@@ -33,6 +33,19 @@ class SerieController extends Controller
         ));
     }
 
+    public function recentSeriesAction($max = 3)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $series = $em->getRepository('AppBundle:Serie')->findRecentSeries($max)->getResult();
+
+
+        return $this->render(
+            'serie/recent_list.html.twig',
+            array('series' => $series)
+        );
+    }
+
     /**
      * Creates a new Serie entity.
      *

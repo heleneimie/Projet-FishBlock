@@ -12,4 +12,16 @@ use Doctrine\ORM\EntityRepository;
  */
 class PostRepository extends EntityRepository
 {
+    public function findRecentPosts($max){
+
+        $query = $this->getEntityManager()->createQueryBuilder();
+        return $query->select('p')
+            ->from('AppBundle:Post','p')
+            ->orderBy('p.date','ASC')
+            ->setMaxResults($max)
+            ->getQuery();
+
+
+
+    }
 }
