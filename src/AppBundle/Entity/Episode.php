@@ -56,12 +56,6 @@ class Episode
      */
     private $summary;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="note", type="integer", nullable=true)
-     */
-    private $note;
 
     /**
      * @var string
@@ -198,28 +192,6 @@ class Episode
         return $this->summary;
     }
 
-    /**
-     * Set note
-     *
-     * @param integer $note
-     * @return Episode
-     */
-    public function setNote($note)
-    {
-        $this->note = $note;
-
-        return $this;
-    }
-
-    /**
-     * Get note
-     *
-     * @return integer 
-     */
-    public function getNote()
-    {
-        return $this->note;
-    }
 
     /**
      * Set serie

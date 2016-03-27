@@ -22,41 +22,9 @@
 
     <!-- Derniers commentaires -->
     <section id="comment" class="row">
-        <div id="last_comments">
-            {{ render(controller('AppBundle:Post:recentPosts',{ 'max': 3 })) }}
-        </div>
         <div class="col-lg-12">
             <h3>Derniers commentaires :</h3>
-            <div class="col-lg-4">
-                <img align="left" id="avatar" src="#"><br/>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod quis sem eu gravida. Ut vitae
-                    rhoncus lectus. Integer lacinia feugiat mollis. Curabitur ultrices neque suscipit neque venenatis, non
-                    finibus odio tincidunt. Quisque semper ligula eu sollicitudin sodales. Pellentesque lacinia nunc justo,
-                    eu vulputate libero fringilla ut. Integer non libero ornare, mollis urna ut, accumsan enim. Fusce
-                    vehicula vestibulum dolor, vitae dignissim sem gravida non. Maecenas consequat fringilla urna, nec
-                    vestibulum turpis rhoncus a. Duis ut metus et nunc tincidunt tempus ut eu justo. Mauris sed vestibulum
-                    eros, at vehicula massa</p>
-            </div>
-            <div class="col-lg-4">
-                <img align="left" id="avatar" src="#"><br/>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod quis sem eu gravida. Ut vitae
-                    rhoncus lectus. Integer lacinia feugiat mollis. Curabitur ultrices neque suscipit neque venenatis, non
-                    finibus odio tincidunt. Quisque semper ligula eu sollicitudin sodales. Pellentesque lacinia nunc justo,
-                    eu vulputate libero fringilla ut. Integer non libero ornare, mollis urna ut, accumsan enim. Fusce
-                    vehicula vestibulum dolor, vitae dignissim sem gravida non. Maecenas consequat fringilla urna, nec
-                    vestibulum turpis rhoncus a. Duis ut metus et nunc tincidunt tempus ut eu justo. Mauris sed vestibulum
-                    eros, at vehicula massa</p>
-            </div>
-            <div class="col-lg-4">
-                <img align="left" id="avatar" src="#"><br/>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod quis sem eu gravida. Ut vitae
-                    rhoncus lectus. Integer lacinia feugiat mollis. Curabitur ultrices neque suscipit neque venenatis, non
-                    finibus odio tincidunt. Quisque semper ligula eu sollicitudin sodales. Pellentesque lacinia nunc justo,
-                    eu vulputate libero fringilla ut. Integer non libero ornare, mollis urna ut, accumsan enim. Fusce
-                    vehicula vestibulum dolor, vitae dignissim sem gravida non. Maecenas consequat fringilla urna, nec
-                    vestibulum turpis rhoncus a. Duis ut metus et nunc tincidunt tempus ut eu justo. Mauris sed vestibulum
-                    eros, at vehicula massa</p>
-            </div>
+            {{ render(controller('AppBundle:Post:recentPosts',{ 'max': 3 })) }}
             <a href="#"><i class="glyphicon glyphicon-plus button pull-right">Voir plus de commentaires</i></a>
         </div>
     </section>

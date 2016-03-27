@@ -22,9 +22,7 @@ class LoadEpisodeData implements FixtureInterface
             ->setSummary('Lorem ipsum dolor sit amet, consectetur adipisicing elit.
             Dolorum eligendi, est, explicabo fugit iste minus nemo officiis,
             pariatur praesentium quasi quos sequi soluta veritatis!
-            Enim itaque molestiae repudiandae voluptas voluptatum!')
-            ->setNote(4);
-//            ->setSerie(new Serie('Breaking Bad'));
+            Enim itaque molestiae repudiandae voluptas voluptatum!');
 
         $manager->persist($episode);
         $manager->flush();

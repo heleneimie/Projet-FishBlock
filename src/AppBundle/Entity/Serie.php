@@ -59,16 +59,16 @@ class Serie
     private $episodes;
 
     /**
+     * @var string
      *
-     * @ORM\OneToOne(targetEntity="Post")
-     * @ORM\JoinColumn(name="post_id", referencedColumnName="id")
+     * @ORM\Column(name="summary", type="text")
      */
     private $summary;
 
     /**
-     * @var string
      *
-     * @ORM\Column(name="comments", type="string", length=255, nullable=true)
+     * @ORM\OneToOne(targetEntity="Post")
+     * @ORM\JoinColumn(name="post_id", referencedColumnName="id")
      */
     private $comments;
 

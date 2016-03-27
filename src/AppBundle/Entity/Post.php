@@ -42,6 +42,7 @@ class Post
      */
     private $note;
 
+
     /**
      * @var string
      *
@@ -95,7 +96,6 @@ class Post
     {
         return $this->date;
     }
-
 
 
     /**
