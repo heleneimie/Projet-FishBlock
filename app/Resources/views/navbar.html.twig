@@ -1,11 +1,18 @@
 <!-- Collect the nav links, forms, and other content for toggling -->
+<ul class="nav navbar-nav navbar-left">
+    <li class="EffectBlue"><a href={{ path('homepage') }}><span class="glyphicon glyphicon-home"></span>  ACCUEIL</a></li>
+    <li class="EffectYellow"><a href={{ path('serie_index') }}>SERIES</a></li>
+    <li class="EffectRed"><a href="#">MEMBRES</a></li>
+    <li class="EffectOrange"><a href="#">PROFIL</a></li>
+    <li class="EffectGreen"><a href="#">FORUM</a></li>
 
-    <ul class="nav navbar-nav">
-        <li><a href={{ path('homepage') }}><span class="glyphicon glyphicon-home"></span>  ACCUEIL</a></li>
-        <li><a href={{ path('serie_index') }}>SERIES</a></li>
-        <li><a href="#">MEMBRES</a></li>
-        <li><a href="#">PROFIL</a></li>
-        <li><a href="#">FORUM</a></li>
-    </ul>
+    <!-- Connexion / Inscription -->
+    {% block login %}
+        {% include 'login.html.twig' %}
+    {% endblock %}
 
-{#<a href={{ path('fos_user_security_login') }} class="container">Inscription / connexion</a>#}
+    <!-- Langues -->
+    {% block language %}
+        {% include 'lang.html.twig' %}
+    {% endblock %}
+</ul>
