@@ -1,16 +1,18 @@
 <!-- Icônes réseaux sociaux -->
-<div>
-    <figure>
-        <a href="#"><img src="#" alt="facebook" /></a>
-        <a href="#"><img src="#" alt="twitter" /></a>
-        <a href="#"><img src="#" alt="googlePlus" /></a>
-    </figure>
+<div class="col-lg-offset-6 col-lg-2">
+    {% block RS %}
+        {% include 'social.html.twig' %}
+    {% endblock %}
 </div>
 
 <!-- Mentions légales / Plan du site / Contact -->
-<div>
-    <span>Copyright 2015-2016 by Team IMIE</span>
-    <a href="#">Mentions légales</a>
-    <a href="#">Plan du site</a>
-    <a href="#">Contact</a>
+<div class="container-fluid">
+    <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+            <li><a href="#">Copyright 2015-2016 by Team IMIE</a></li>
+            <li><a href="#">Mentions légales</a></li>
+            <li><a href="#">Plan du site</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
 </div>
