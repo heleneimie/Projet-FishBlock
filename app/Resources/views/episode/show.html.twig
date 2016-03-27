@@ -18,10 +18,6 @@
                 <td>{% if episode.airdate %}{{ episode.airdate|date('Y-m-d') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Durée (min)</th>
-                <td>{{ episode.length }}</td>
-            </tr>
-            <tr>
                 <th>Saison</th>
                 <td>{{ episode.season }}</td>
             </tr>
@@ -29,16 +25,12 @@
                 <th>Synopsis</th>
                 <td>{{ episode.summary }}</td>
             </tr>
-            <tr>
-                <th>Note</th>
-                <td>{{ episode.note }}</td>
-            </tr>
         </tbody>
     </table>
 
     <ul>
         <li>
-            <a href="{{ path('episode_index') }}">Retour à la liste des épisodes</a>
+            <a href="{{ path('serie_show', { 'id': episode.serie.id}) }}">Retour à la série</a>
         </li>
         <li>
             <a href="{{ path('episode_edit', { 'id': episode.id }) }}">Modifier</a>

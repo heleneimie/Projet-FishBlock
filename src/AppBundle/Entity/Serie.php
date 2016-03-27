@@ -116,12 +116,12 @@ class Serie
     /**
      * Set seasons
      *
-     * @param integer $seasons
+     * @param integer $season
      * @return Serie
      */
-    public function setSeasons($seasons)
+    public function setSeason($season)
     {
-        $this->seasons = $seasons;
+        $this->seasons = $season;
 
         return $this;
     }
@@ -131,7 +131,7 @@ class Serie
      *
      * @return integer
      */
-    public function getSeasons()
+    public function getSeason()
     {
         return $this->seasons;
     }
@@ -233,7 +233,7 @@ class Serie
     public function __construct()
     {
         $this->date = new \DateTime();
-        $this->author = "Djaisonne";
+        $this->author = "A. Nonyme";
         $this->actors = new ArrayCollection();
         $this->episodes = new ArrayCollection();
     }
@@ -275,6 +275,7 @@ class Serie
     public function removeActor(Actor $actor)
     {
         $this->actors->removeElement($actor);
+        $actor->removeSerie($this);
     }
 
     /**

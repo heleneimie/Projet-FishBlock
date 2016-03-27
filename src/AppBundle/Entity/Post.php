@@ -60,7 +60,7 @@ class Post
     public function __construct()
     {
         $this->date = new \DateTime();
-        $this->author = "Djaisonne";
+        $this->author = "A. Nonyme";
         $this->language = "fr";
     }
 

@@ -59,6 +59,7 @@ class SerieController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $serie->setAuthor("Moi");
             $em = $this->getDoctrine()->getManager();
             $em->persist($serie);
             $em->flush();

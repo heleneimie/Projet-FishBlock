@@ -15,7 +15,7 @@ class LoadSerieData implements FixtureInterface
         $summary = "Le résume de votre super serie trop de la balle!";
         $serie = new Serie;
         $serie->setTitle('Arrow')
-            ->setSeasons(1)
+            ->setSeason(1)
             ->setNote(4)
             ->setGenre('Romance')
             ->setSummary($summary)
@@ -25,7 +25,7 @@ class LoadSerieData implements FixtureInterface
 
         $serie2 = new Serie;
         $serie2->setTitle('Breaking Bad')
-            ->setSeasons(5)
+            ->setSeason(5)
             ->setNote(7)
             ->setGenre('Drama')
             ->setSummary($summary)
@@ -35,7 +35,7 @@ class LoadSerieData implements FixtureInterface
 
         $serie3 = new Serie;
         $serie3->setTitle('Mon petit poney')
-            ->setSeasons(25)
+            ->setSeason(25)
             ->setNote(3)
             ->setGenre('Science Fiction')
             ->setSummary($summary)

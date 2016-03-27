@@ -35,12 +35,6 @@ class Episode
      */
     private $airdate;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="length", type="integer")
-     */
-    private $length;
 
     /**
      * @var int
@@ -123,28 +117,6 @@ class Episode
         return $this->airdate;
     }
 
-    /**
-     * Set length
-     *
-     * @param integer $length
-     * @return Episode
-     */
-    public function setLength($length)
-    {
-        $this->length = $length;
-
-        return $this;
-    }
-
-    /**
-     * Get length
-     *
-     * @return integer 
-     */
-    public function getLength()
-    {
-        return $this->length;
-    }
 
     /**
      * Set season

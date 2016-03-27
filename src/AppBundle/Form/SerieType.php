@@ -19,15 +19,9 @@ class SerieType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('nationality')
-            ->add('showrunner')
-            ->add('actors')
-            ->add('characters')
             ->add('seasons')
-            ->add('episodes', EntityType::class, ['class' =>'AppBundle:Episode', 'choice_label' => 'title'])
+            ->add('genre')
             ->add('summary')
-            ->add('comments')
-            ->add('note')
         ;
     }
     

@@ -23,13 +23,13 @@
             </tr>
             <tr>
                 <th>Saisons</th>
-                <td>{{ serie.seasons }}</td>
+                <td>{{ serie.season }}</td>
             </tr>
-
             <tr>
                 <th>Synopsis</th>
                 <td>{{ serie.summary }}</td>
             </tr>
+
             <tr>
                 <th>Commentaires</th>
                 <td>{{ serie.comments }}</td>
@@ -37,6 +37,14 @@
             <tr>
                 <th>Note</th>
                 <td>{{ serie.note }}</td>
+            </tr>
+            <tr>
+                <th>Episodes</th>
+                <td><ul>{% for episode in serie.episodes %}
+                            <a href="{{ path('episode_show', {'id' : episode.id }) }}"><li>{{ episode.title }}</li></a>
+                        {% endfor %}
+                    </ul>
+                </td>
             </tr>
         </tbody>
     </table>

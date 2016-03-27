@@ -37,22 +37,22 @@ class EpisodeController extends Controller
     /**
      * Creates a new Episode entity.
      *
-     * @Route("/new", name="episode_new")
+     * @Route("/new/{id}", name="episode_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request, Serie $serie)
     {
         $episode = new Episode();
-        $episode->setSerie($serie);
         $form = $this->createForm('AppBundle\Form\EpisodeType', $episode);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $episode->setSerie($serie);
             $em = $this->getDoctrine()->getManager();
             $em->persist($episode);
             $em->flush();
 
-            return $this->redirectToRoute('episode_show', array('id' => $episode->getId()));
+            return $this->redirectToRoute('serie_show', array('id' => $serie->getId()));
         }
 
         return $this->render('episode/new.html.twig', array(

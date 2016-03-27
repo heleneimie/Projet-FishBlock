@@ -6,12 +6,9 @@
     {{ form_start(edit_form) }}
         {#{{ form_widget(edit_form) }}#}
     {{ form_row(edit_form.title, {'label': 'Titre de la série'}) }}
-    {{ form_row(edit_form.nationality, {'label': 'Nationalité'}) }}
-    {{ form_row(edit_form.showrunner, {'label': 'Créateur de la série'}) }}
     {{ form_row(edit_form.actors, {'label': 'Acteurs'}) }}
-    {{ form_row(edit_form.characters, {'label': 'Personnages'}) }}
     {{ form_row(edit_form.seasons, {'label': 'Saisons'}) }}
-    {{ form_row(edit_form.episodes, {'label': 'Episodes'}) }}
+    {#{{ form_row(edit_form.episodes, {'label': 'Episodes'}) }}#}
     {{ form_row(edit_form.summary, {'label': 'Synopsis'}) }}
     {{ form_row(edit_form.comments, {'label': 'Commentaires'}) }}
     {{ form_row(edit_form.note, {'label': 'Note'}) }}

@@ -19,12 +19,8 @@ class EpisodeType extends AbstractType
         $builder
             ->add('title')
             ->add('airdate', 'date')
-            ->add('length')
-            ->add('season')
             ->add('summary')
-            ->add('note')
-//            ->add('serie', EntityType::class, ['class'=>'AppBundle:Serie', 'choice_label'=>'title'])
-        ;
+            ->add('season');
     }
     
     /**

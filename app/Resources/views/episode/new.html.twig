@@ -1,15 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Proposition d'un épisode pour la série </h1>
+    <h1>Ajouter un épisode à la série</h1>
 
     {{ form_start(form) }}
         {{ form_row(form.title, {'label': 'Titre de l\'épisode'}) }}
         {{ form_row(form.airdate, {'label': 'Date'}) }}
-        {{ form_row(form.length, {'label': 'Durée (min)'}) }}
         {{ form_row(form.season, {'label': 'Saison'}) }}
         {{ form_row(form.summary, {'label': 'Synopsis'}) }}
-        {{ form_row(form.note, {'label': 'Note'}) }}
         {#{{ form_row(form.serie, {'label': 'Série'}) }}#}
         <input type="submit" value="Proposer" />
     {{ form_end(form) }}
