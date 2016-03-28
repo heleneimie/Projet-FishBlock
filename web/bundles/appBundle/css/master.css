@@ -15,16 +15,16 @@ body{
     font-size: 0.75em;
 }
 
+/* Navbar */
 .navbar-default{
-background-color: #686868;
-/*text-transform: uppercase;*/
-/*min-height: 50px;*/
-/*max-height: 100px;*/
+    background-color: #686868;
+    /*!*text-transform: uppercase;*!*/
+    /*min-height: 50px;*/
+    /*max-height: 100px;*/
 }
 
-/* Navbar */
 .navbar-default .navbar-nav > li > a {
-color: white;
+    color: white;
 }
 
 .navbar .navbar-nav{
@@ -35,19 +35,19 @@ color: white;
 
 /* Central searchBar */
 .central{
-margin-top: -20px;
-margin-bottom: 20px;
-background-color: lightgrey;
-height: 120px;
+    margin-top: -20px;
+    margin-bottom: 20px;
+    background-color: lightgrey;
+    height: 120px;
 }
 
 .centralSearchbar{
-margin-top: 40px;
+    margin-top: 40px;
 }
 
 /* Containers */
 .main{
-    min-height: 800px;
+    min-height: 1000px;
 }
 
 .container-fluid
@@ -56,8 +56,25 @@ margin-top: 40px;
 }
 
 .serieBlock{
-    border: solid black 1px;
+    margin-bottom: 25px;
 }
+
+.serieBlock a{
+    text-decoration: none;
+}
+
+.serieTitle{
+    padding: 10px 10px 10px 10px;
+    background-color: #FDB515;
+    text-transform: uppercase;
+    color: white;
+}
+
+#poster{
+    width: 100px;
+    height: 150px;
+}
+
 
 /* Menus effects */
 .EffectBlue:hover{
@@ -98,5 +115,12 @@ margin-top: 40px;
 /* Footer */
 #footer{
     background-color: #686868;
-    height: 100px;
+    max-height: 50px;
+}
+.footer{
+    background-color: #686868;
+}
+
+.footer a{
+    color: white;
 }
