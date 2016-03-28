@@ -1,5 +1,4 @@
 /web/bundles/
-!/web/bundles/appBundle
 /app/bootstrap.php.cache
 /app/cache/*
 /app/config/parameters.yml
