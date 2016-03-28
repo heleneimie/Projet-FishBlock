@@ -46,5 +46,16 @@ class LoadSerieData implements FixtureInterface
             ->setAuthor($author);
         $manager->persist($serie3);
         $manager->flush();
+
+        $serie4 = new Serie;
+        $serie4->setTitle('Louis la Brocante')
+            ->setSeason(46)
+            ->setNote(9)
+            ->setGenre('Horreur')
+            ->setSummary($summary)
+            ->setActors($actors)
+            ->setAuthor($author);
+        $manager->persist($serie4);
+        $manager->flush();
     }
 }

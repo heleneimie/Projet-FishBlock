@@ -55,10 +55,16 @@
         </tbody>
     </table>
 
+    <!-- Affichage conditionnel bouton Proposer un épisode, si user connecté -->
+    {% if app.user.username is defined %}
+        <a href="{{ path('episode_new', { 'id': serie.id }) }}">
+            <button type="button" class="btn btn-default btn-lg propSerieBtn">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter un épisode
+            </button>
+        </a>
+    {% endif %}
+
     <ul>
-        <li>
-            <a href="{{ path('episode_new', { 'id': serie.id }) }}">Ajouter un épisode</a>
-        </li>
         <li>
             <a href="{{ path('serie_index') }}">Retour à la liste des séries</a>
         </li>
