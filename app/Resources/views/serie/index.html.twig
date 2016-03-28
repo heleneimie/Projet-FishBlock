@@ -18,13 +18,13 @@
     {% for serie in series %}
         <div class="col-lg-4 serieBlock">
             <a href="{{ path('serie_show', { 'id': serie.id }) }}">
-                <div class="serieImage">
+                <div class="serieImage text-center">
                     <figure>
                         {# Ajouter {{ serie.poster }} à la place de src='' #}
-                        <img align="center" id="poster" src="}" alt="{{ serie.title }}"><br/>
+                        <img align="center" id="poster" src="" alt="{{ serie.title }}"><br/>
                     </figure>
                 </div>
-                <div class="serieTitle">
+                <div class="serieTitle text-center">
                     <h4>{{ serie.title }}</h4>
                 </div>
             </a>
@@ -32,13 +32,13 @@
 
         <div class="col-lg-4 serieBlock">
             <a href="{{ path('serie_show', { 'id': serie.id }) }}">
-                <div class="serieImage">
+                <div class="serieImage text-center">
                     <figure>
                         {# Ajouter {{ serie.poster }} à la place de src='' #}
-                        <img align="center" id="poster" src="}" alt="{{ serie.title }}"><br/>
+                        <img align="center" id="poster" src="" alt="{{ serie.title }}"><br/>
                     </figure>
                 </div>
-                <div class="serieTitle">
+                <div class="serieTitle text-center">
                     <h4>{{ serie.title }}</h4>
                 </div>
             </a>
@@ -46,17 +46,23 @@
 
         <div class="col-lg-4 serieBlock">
             <a href="{{ path('serie_show', { 'id': serie.id }) }}">
-                <div class="serieImage">
+                <div class="serieImage text-center">
                     <figure>
                         {# Ajouter {{ serie.poster }} à la place de src='' #}
-                        <img align="center" id="poster" src="}" alt="{{ serie.title }}"><br/>
+                        <img align="center" id="poster" src="" alt="{{ serie.title }}"><br/>
                     </figure>
                 </div>
-                <div class="serieTitle">
+                <div class="serieTitle text-center">
                     <h4>{{ serie.title }}</h4>
                 </div>
             </a>
         </div>
     {% endfor %}
+
+    <!-- Forum -->
+    {% block forum %}
+        {% include 'forum.html.twig' %}
+    {% endblock %}
+
 {% endblock %}
 
