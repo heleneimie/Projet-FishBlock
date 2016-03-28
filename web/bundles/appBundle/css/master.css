@@ -1,0 +1,102 @@
+/* General CSS for all project */
+body{
+    background-color: white;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+/* Header */
+#logo{
+    width: 120px;
+}
+
+.welcome{
+    display: inline-block;
+    font-size: 0.75em;
+}
+
+.navbar-default{
+background-color: #686868;
+/*text-transform: uppercase;*/
+/*min-height: 50px;*/
+/*max-height: 100px;*/
+}
+
+/* Navbar */
+.navbar-default .navbar-nav > li > a {
+color: white;
+}
+
+.navbar .navbar-nav{
+    display: inline-block;
+    float: none;
+    margin-left: 20%;
+}
+
+/* Central searchBar */
+.central{
+margin-top: -20px;
+margin-bottom: 20px;
+background-color: lightgrey;
+height: 120px;
+}
+
+.centralSearchbar{
+margin-top: 40px;
+}
+
+/* Containers */
+.main{
+    min-height: 800px;
+}
+
+.container-fluid
+{
+    min-height: 100%;
+}
+
+.serieBlock{
+    border: solid black 1px;
+}
+
+/* Menus effects */
+.EffectBlue:hover{
+    background-color: #00B6DE;
+}
+
+.EffectYellow:hover{
+    background-color: #FDB515;
+}
+
+.EffectRed:hover{
+    background-color: #ED3126;
+}
+
+.EffectOrange:hover{
+    background-color: #EF7A35;
+}
+
+.EffectGreen:hover{
+    background-color: #58BF94;
+}
+
+/*Socials*/
+.social_icon{
+    height: 25px;
+    width: 25px;
+}
+
+#socialIcons{
+    margin-top: 20px;
+    text-align: center;
+}
+
+#socialIcons a{
+    color: white;
+}
+
+/* Footer */
+#footer{
+    background-color: #686868;
+    height: 100px;
+}
