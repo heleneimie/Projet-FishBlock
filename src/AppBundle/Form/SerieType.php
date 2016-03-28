@@ -19,7 +19,7 @@ class SerieType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('seasons')
+            ->add('season')
             ->add('genre')
             ->add('summary')
         ;

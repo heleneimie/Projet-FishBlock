@@ -48,9 +48,9 @@ class Serie
     /**
      * @var int
      *
-     * @ORM\Column(name="seasons", type="integer")
+     * @ORM\Column(name="season", type="integer")
      */
-    private $seasons;
+    private $season;
 
     /**
      * @var array
@@ -114,26 +114,26 @@ class Serie
     }
 
     /**
-     * Set seasons
+     * Set season
      *
      * @param integer $season
      * @return Serie
      */
     public function setSeason($season)
     {
-        $this->seasons = $season;
+        $this->season = $season;
 
         return $this;
     }
 
     /**
-     * Get seasons
+     * Get season
      *
      * @return integer
      */
     public function getSeason()
     {
-        return $this->seasons;
+        return $this->season;
     }
 
     /**
