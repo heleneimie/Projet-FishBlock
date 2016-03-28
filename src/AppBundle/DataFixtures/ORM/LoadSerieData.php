@@ -30,7 +30,7 @@ class LoadSerieData implements FixtureInterface
             ->setGenre('Drama')
             ->setSummary($summary)
             ->setActors($actors);
-        $manager->persist($serie);
+        $manager->persist($serie2);
         $manager->flush();
 
         $serie3 = new Serie;
@@ -40,7 +40,7 @@ class LoadSerieData implements FixtureInterface
             ->setGenre('Science Fiction')
             ->setSummary($summary)
             ->setActors($actors);
-        $manager->persist($serie);
+        $manager->persist($serie3);
         $manager->flush();
     }
 }
