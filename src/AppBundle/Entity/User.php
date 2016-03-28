@@ -58,11 +58,20 @@ class User extends BaseUser
      */
     private $created;
 
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="Serie", mappedBy="author")
+     */
+    private $seriesProposed;
+
+
     public function __construct()
     {
         parent::__construct();
         $this->friendsWithMe = new ArrayCollection();
         $this->myFriends = new ArrayCollection();
+        $this->seriesProposed = new ArrayCollection();
         $this->created = new \DateTime();
     }
 
@@ -245,5 +254,44 @@ class User extends BaseUser
     public function getCreated()
     {
         return $this->created;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSeriesProposed()
+    {
+        return $this->seriesProposed;
+    }
+
+    /**
+     * @param mixed $seriesProposed
+     */
+    public function setSeriesProposed($seriesProposed)
+    {
+        $this->seriesProposed = $seriesProposed;
+    }
+
+    /**
+     * Add Serie to seriesProposed
+     *
+     * @param \AppBundle\Entity\Serie $serie
+     * @return User
+     */
+    public function addSeriesProposed(\AppBundle\Entity\Serie $serie)
+    {
+        $this->seriesProposed[] = $serie;
+
+        return $this;
+    }
+
+    /**
+     * Remove from seriesProposed
+     *
+     * @param \AppBundle\Entity\Serie $serie
+     */
+    public function removeSeriesProposed(\AppBundle\Entity\Serie $serie)
+    {
+        $this->seriesProposed->removeElement($serie);
     }
 }

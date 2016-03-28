@@ -81,9 +81,10 @@ class Serie
     private $note;
 
     /**
-     * @var string
+     * @var User
      *
-     * @ORM\Column(name="author", type="string", nullable=true)
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="seriesProposed")
+     * @ORM\JoinColumn(name="author_id", referencedColumnName="id")
      */
     private $author;
 
@@ -233,7 +234,6 @@ class Serie
     public function __construct()
     {
         $this->date = new \DateTime();
-        $this->author = "A. Nonyme";
         $this->actors = new ArrayCollection();
         $this->episodes = new ArrayCollection();
     }
