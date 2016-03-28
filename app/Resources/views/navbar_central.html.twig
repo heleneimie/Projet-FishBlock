@@ -1,0 +1,15 @@
+<!-- Barre de recherche centrale -->
+<div class="container-fluid central">
+    <div class="col-sm-6 col-sm-offset-3 centralSearch">
+        <div id="imaginary_container">
+            <div class="input-group stylish-input-group">
+                <input type="text" class="form-control" placeholder="Rechercher une série" />
+                <div class="input-group-addon">
+                    <button type="submit" class="glyphicon glyphicon-search"></button>
+                    {#A modifier : renvoyer vers la page de recherche avancée#}
+                    <a href="{{ path('serie_index') }}">Recherche avancée</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

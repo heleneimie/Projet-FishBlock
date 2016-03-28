@@ -17,7 +17,6 @@ class LoadEpisodeData implements FixtureInterface
         $episode = new Episode;
         $episode->setTitle('Better Call Saul')
             ->setAirdate(new DateTime('06-04-2016'))
-            ->setLength(48)
             ->setSeason(2)
             ->setSummary('Lorem ipsum dolor sit amet, consectetur adipisicing elit.
             Dolorum eligendi, est, explicabo fugit iste minus nemo officiis,
