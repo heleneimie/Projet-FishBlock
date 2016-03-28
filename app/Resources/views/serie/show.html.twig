@@ -7,28 +7,51 @@
         {% include 'navbar_central.html.twig' %}
     {% endblock %}
 
-    <h1>Série</h1>
+    <!-- Titre de la série -->
+    <div class="col-lg-12">
+        <h1>{{ serie.title }}</h1>
+    </div>
 
-    <table>
-        <tbody>
+    <!-- Bloc acteurs -->
+    <div class="col-lg-4">
+        <div class="actorBlock">
+            <div class="miniBlockTitle text-center">
+                <h4>Acteurs</h4>
+            </div>
+            {% for actor in serie.actors %}
+                <div class="miniBlockActor text-center">
+                    {#Ajouter {{ path('actor_show', { 'id': actor.id }) }} dans le href="" #}
+                    <a href="#">
+                        <div class="actorPicture text-center">
+                            <figure>
+                                {# Ajouter {{ actor.picture }} à la place de src='' #}
+                                <img align="center" src="{{ asset ('bundles/appBundle/images/PhotoProfilHomme.jpg')}}" alt="{{ actor.firstname ~ ' ' ~  actor.lastname }}"><br/>
+                            </figure>
+                        </div>
+                        {#<div class="actorName text-center">#}
+                        {#{{ actor.firstname ~ ' ' ~  actor.lastname }}#}
+                        {#</div>#}
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- Affichage conditionnel bouton Proposer un épisode, si user connecté -->
+        {% if app.user.username is defined %}
+            <a href="{{ path('episode_new', { 'id': serie.id }) }}">
+                <button type="button" class="btn btn-default btn-lg propSerieBtn">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter un épisode
+                </button>
+            </a>
+        {% endif %}
+
+    </div>
+
+    <div class="col-lg-8">
+        <table>
+            <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ serie.id }}</td>
-            </tr>
-            <tr>
-                <th>Titre</th>
-                <td>{{ serie.title }}</td>
-            </tr>
-            <tr>
-                <th>Acteurs</th>
-                <td><ul>{% for actor in serie.actors %}
-                        <li>{{ actor }}</li>
-                    {% endfor %}
-                    </ul>
-                </td>
-            </tr>
-            <tr>
-                <th>Saisons</th>
+                <th>Nombre de saisons</th>
                 <td>{{ serie.season }}</td>
             </tr>
             <tr>
@@ -52,29 +75,24 @@
                     </ul>
                 </td>
             </tr>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
 
-    <!-- Affichage conditionnel bouton Proposer un épisode, si user connecté -->
+    <p><a href="{{ path('serie_index') }}">Retour à la liste des séries</a></p>
+    <p><a href="{{ path('serie_edit', { 'id': serie.id }) }}">Modifier</a></p>
+
+    {{ form_start(delete_form) }}
+    <input type="submit" value="Supprimer">
+    {{ form_end(delete_form) }}
+
+    <!-- Affichage conditionnel bouton Publier un commentaire, si user connecté -->
     {% if app.user.username is defined %}
-        <a href="{{ path('episode_new', { 'id': serie.id }) }}">
+        <a href="{{ path('post_new') }}">
             <button type="button" class="btn btn-default btn-lg propSerieBtn">
-                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter un épisode
+                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Publier un commentaire
             </button>
         </a>
     {% endif %}
 
-    <ul>
-        <li>
-            <a href="{{ path('serie_index') }}">Retour à la liste des séries</a>
-        </li>
-        <li>
-            <a href="{{ path('serie_edit', { 'id': serie.id }) }}">Modifier</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Supprimer">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
 {% endblock %}

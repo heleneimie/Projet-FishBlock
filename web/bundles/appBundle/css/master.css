@@ -70,6 +70,32 @@ body{
     color: white;
 }
 
+.actorBlock{
+    border: 1px solid black;
+}
+
+.miniBlockTitle{
+    padding: 10px 10px 10px 10px;
+    background-color: #EF7A35;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+}
+
+.miniBlockActor{
+    width: 80px;
+    height: 80px;
+    margin: 10px 10px 10px 10px;
+    display: inline-block;
+    border: 1px solid black;
+
+}
+
+.actorPicture{
+    width: 75px;
+    height: 75px;
+}
+
 #poster{
     width: 100px;
     height: 150px;
