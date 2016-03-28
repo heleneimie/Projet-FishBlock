@@ -51,6 +51,8 @@ class EpisodeController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($episode);
             $em->flush();
+            $this->addFlash('alert alert-success','Votre épisode est en attente de validation');
+
 
             return $this->redirectToRoute('serie_show', array('id' => $serie->getId()));
         }

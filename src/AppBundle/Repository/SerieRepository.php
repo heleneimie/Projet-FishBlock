@@ -17,7 +17,7 @@ class SerieRepository extends EntityRepository
         $query = $this->getEntityManager()->createQueryBuilder();
         return $query->select('s')
             ->from('AppBundle:Serie','s')
-            ->orderBy('s.date','ASC')
+            ->orderBy('s.date','DESC')
             ->setMaxResults($max)
             ->getQuery();
 

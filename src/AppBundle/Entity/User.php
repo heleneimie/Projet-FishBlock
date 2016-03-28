@@ -64,6 +64,13 @@ class User extends BaseUser
      * @ORM\OneToMany(targetEntity="Serie", mappedBy="author")
      */
     private $seriesProposed;
+    
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="Post", mappedBy="author")
+     */
+    private $comments;
 
 
     public function __construct()
@@ -72,6 +79,7 @@ class User extends BaseUser
         $this->friendsWithMe = new ArrayCollection();
         $this->myFriends = new ArrayCollection();
         $this->seriesProposed = new ArrayCollection();
+        $this->comments = new ArrayCollection();
         $this->created = new \DateTime();
     }
 

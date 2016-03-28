@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use AppBundle\Entity\Serie;
 use AppBundle\Form\SerieType;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 /**
  * Serie controller.
@@ -56,13 +57,15 @@ class SerieController extends Controller
     {
         $serie = new Serie();
         $form = $this->createForm('AppBundle\Form\SerieType', $serie);
+        $author = $request->getUser();
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $serie->setAuthor("Moi");
+            $serie->setAuthor($author);
             $em = $this->getDoctrine()->getManager();
             $em->persist($serie);
             $em->flush();
+            $this->addFlash('alert alert-success','Votre série est en attente de validation');
 
             return $this->redirectToRoute('serie_show', array('id' => $serie->getId()));
         }
@@ -105,6 +108,7 @@ class SerieController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($serie);
             $em->flush();
+            
 
             return $this->redirectToRoute('serie_edit', array('id' => $serie->getId()));
         }

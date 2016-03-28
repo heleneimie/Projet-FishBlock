@@ -62,8 +62,9 @@ class PostController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($post);
             $em->flush();
+            $this->addFlash('alert alert-success','Votre commentaire est en attente de validation');
 
-            return $this->redirectToRoute('post_show', array('id' => $post->getId()));
+            return $this->redirectToRoute('homepage');
         }
 
         return $this->render('post/new.html.twig', array(

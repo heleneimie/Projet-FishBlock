@@ -24,7 +24,7 @@ class Post
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date", type="date")
+     * @ORM\Column(name="date", type="datetime")
      */
     private $date;
 
@@ -53,14 +53,14 @@ class Post
     /**
      * @var string
      *
-     * @ORM\Column(name="author", type="string", options={"default":"anonymous"})
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="posts")
+     * @ORM\JoinColumn(name="author_id", referencedColumnName="id")
      */
     private $author;
 
     public function __construct()
     {
         $this->date = new \DateTime();
-        $this->author = "A. Nonyme";
         $this->language = "fr";
     }
 

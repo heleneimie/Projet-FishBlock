@@ -4,10 +4,7 @@
     <h1>Création d'un post</h1>
 
     {{ form_start(form) }}
-        {{ form_row(form.date, {'label': 'Date du post'}) }}
         {{ form_row(form.content, {'label': 'Contenu'}) }}
-        {{ form_row(form.note, {'label': 'Note'}) }}
-        {{ form_row(form.language, {'label': 'Langue'}) }}
         <input type="submit" value="Proposer" />
     {{ form_end(form) }}
 

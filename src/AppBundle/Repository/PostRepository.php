@@ -17,7 +17,7 @@ class PostRepository extends EntityRepository
         $query = $this->getEntityManager()->createQueryBuilder();
         return $query->select('p')
             ->from('AppBundle:Post','p')
-            ->orderBy('p.date','ASC')
+            ->orderBy('p.date','DESC')
             ->setMaxResults($max)
             ->getQuery();
 

@@ -90,7 +90,7 @@ class Serie
 
     /**
      * @var DateTime
-     * @ORM\Column(name="date", type="date")
+     * @ORM\Column(name="date", type="datetime")
      */
     private $date;
 
