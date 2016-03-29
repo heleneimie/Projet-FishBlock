@@ -5,6 +5,12 @@ body{
     margin-right: 10%;
 }
 
+h1{
+    font-weight: bold;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
 /* Header */
 #logo{
     width: 120px;
@@ -17,10 +23,8 @@ body{
 
 /* Navbar */
 .navbar-default{
-    background-color: #686868;
-    /*!*text-transform: uppercase;*!*/
-    /*min-height: 50px;*/
-    /*max-height: 100px;*/
+    /*background-color: #34314B;*/
+    background-color: #494E71;
 }
 
 .navbar-default .navbar-nav > li > a {
@@ -36,8 +40,7 @@ body{
 /* Central searchBar */
 .central{
     margin-top: -20px;
-    margin-bottom: 20px;
-    background-color: lightgrey;
+    background-color: rgba(73, 78, 113, 0.35);
     height: 120px;
 }
 
@@ -55,6 +58,7 @@ body{
     min-height: 100%;
 }
 
+/* Serie_index theme */
 .serieBlock{
     margin-bottom: 25px;
 }
@@ -70,56 +74,101 @@ body{
     color: white;
 }
 
-.actorBlock{
-    border: 1px solid black;
+/* Serie_show theme */
+.timelineSerieHeader{
+    margin-top: -20px;
+    margin-bottom: 40px;
+    background-color: rgba(73, 78, 113, 0.1);
+    box-shadow: 2px 2px 12px #aaa;
+    height: 380px;
 }
 
-.miniBlockTitle{
+h1.timelineTitle{
+    font-size: 4em;
+    font-weight: bold;
+    margin-top: 50px;
+    margin-bottom: 40px;
+    /*margin-left: 40px;*/
+}
+
+.asideBlock{
+    margin-top: 30px;
+    background-color: rgba(73, 78, 113, 0.1);
+}
+
+.asideBlockTitle{
     padding: 10px 10px 10px 10px;
-    background-color: #EF7A35;
+    background-color: #494E71;
     text-transform: uppercase;
     font-weight: bold;
     color: white;
 }
 
-.miniBlockActor{
+.asideBlockPictures{
     width: 80px;
     height: 80px;
-    margin: 10px 10px 10px 10px;
+    margin: 5px 5px 5px 5px;
     display: inline-block;
-    border: 1px solid black;
 
 }
 
+/* Posters and pictures */
 .actorPicture{
     width: 75px;
     height: 75px;
+    margin-left: 5px;
 }
 
-#poster{
-    width: 100px;
+#posterHome{
+    width: 110px;
     height: 150px;
 }
 
+#posterSeries{
+    width: 220px;
+    height: 300px;
+}
+
+#imageTimeline{
+    border: 10px solid rgba(73, 78, 113, 0.20);
+    width: 180px;
+    height: 250px;
+    margin : 40px 20px 0px 20px;
+    background-color: white;
+}
+
+/* Buttons */
+.buttonTimeline{
+    margin-left: 35px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* Notes (stars) */
+
+.starsNote{
+    margin-top: -30px;
+    /*margin-left: 40px;*/
+}
 
 /* Menus effects */
-.EffectBlue:hover{
+.EffectBlue{
     background-color: #00B6DE;
 }
 
-.EffectYellow:hover{
+.EffectYellow{
     background-color: #FDB515;
 }
 
-.EffectRed:hover{
+.EffectRed{
     background-color: #ED3126;
 }
 
-.EffectOrange:hover{
+.EffectOrange{
     background-color: #EF7A35;
 }
 
-.EffectGreen:hover{
+.EffectGreen{
     background-color: #58BF94;
 }
 
@@ -139,12 +188,8 @@ body{
 }
 
 /* Footer */
-#footer{
-    background-color: #686868;
-    max-height: 50px;
-}
 .footer{
-    background-color: #686868;
+    background-color: #494E71;
 }
 
 .footer a{

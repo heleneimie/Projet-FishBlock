@@ -1,0 +1,30 @@
+<!-- Timeline header - Series -->
+<div class="container-fluid central timelineSerieHeader">
+    <div class="col-lg-12 ">
+        <div id="imaginary_container">
+            <div class="input-group stylish-input-group">
+                <div class="col-lg-4">
+                    {#Mettre {{ serie.poster }} dans src=""#}
+                    <img align="center" id="imageTimeline" src="{{ asset ('bundles/appBundle/images/LouisLaBrocante.png')}}" alt="{{ serie.title }}">
+
+                    <!-- Bouton pour suivre la série -->
+                    <input type="button" class="btn btn-default btn-lg buttonTimeline" value="Suivre la série"/>
+                </div>
+
+                <!-- Titre de la série -->
+                <div class="col-lg-8">
+                    <h1 class="timelineTitle" align="left">{{ serie.title }}</h1>
+
+                    <!-- Note de la série (étoiles) -->
+                    {#Remplacer 0..4 par 0..'{{ serie.note }}'#}
+                    <div class="starsNote">
+                        {% for i in 0..4 %}
+                            <span class="glyphicon glyphicon-star"></span>
+                        {% endfor %}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

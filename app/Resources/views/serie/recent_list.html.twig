@@ -1,7 +1,7 @@
 {% for serie in series %}
 
     <div class="col-lg-4">
-        <img align="left" id="poster" src="#"><br/>
+        <img align="left" id="posterHome" src="#"><br/>
             <strong>Posté le {{ serie.date }} par {{ serie.author }} :</strong>
         {{ serie.summary | slice(0,140) }}...
         <a href="/serie/{{ serie.id }}">Voir le détail
