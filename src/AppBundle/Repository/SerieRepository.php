@@ -21,7 +21,7 @@ class SerieRepository extends EntityRepository
             ->setMaxResults($max)
             ->getQuery();
 
-
+ 
 
     }
 }

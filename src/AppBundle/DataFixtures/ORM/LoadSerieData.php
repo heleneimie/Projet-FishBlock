@@ -3,11 +3,12 @@
 
 namespace AppBundle\DataFixtures\ORM;
 
-use Doctrine\Common\DataFixtures\FixtureInterface;
+use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use AppBundle\Entity\Serie;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 
-class LoadSerieData implements FixtureInterface
+class LoadSerieData extends AbstractFixture implements OrderedFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
@@ -57,5 +58,15 @@ class LoadSerieData implements FixtureInterface
             ->setAuthor($author);
         $manager->persist($serie4);
         $manager->flush();
+    }
+
+    /**
+     * Get the order of this fixture
+     *
+     * @return integer
+     */
+    public function getOrder()
+    {
+        // TODO: Implement getOrder() method.
     }
 }
