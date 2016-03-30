@@ -15,7 +15,7 @@ class DefaultController extends Controller
     {
         ($this->getUser())? $name=$this->getUser()->getUsername(): $name = "Invité";
         // replace this example code with whatever you need
-        return $this->render('AppBundle:index.html.twig',
+        return $this->render('index.html.twig',
             array('name' => $name
             )
         );

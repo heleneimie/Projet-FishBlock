@@ -95,6 +95,12 @@ class Serie
     private $date;
 
     /**
+     * @var string
+     * @ORM\Column(name="poster", type="string")
+     */
+    private $poster;
+
+    /**
      * Get id
      *
      * @return integer
@@ -360,10 +366,25 @@ class Serie
     public function setAuthor($author)
     {
         $this->author = $author;
+        return $this;
     }
 
     public function getAuthor()
     {
         return $this->author;
     }
+
+    public function setPoster($poster)
+    {
+        $this->poster = $poster;
+
+        return $this;
+    }
+
+    public function getPoster()
+    {
+        //return chaîne de caractères pour chemin vers twig
+        return $this->poster;
+    }
+
 }
