@@ -189,7 +189,7 @@ class User extends BaseUser
      */
     public function setPicture($picture)
     {
-        $this->picture = 'bundles/appBundle/images/' . $picture;
+        $this->picture = $picture;
 
         return $this;
     }
@@ -201,7 +201,6 @@ class User extends BaseUser
      */
     public function getPicture()
     {
-        //return chaîne de caractères pour chemin vers twig
         return $this->picture;
     }
 
