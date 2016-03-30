@@ -31,11 +31,18 @@ class User extends BaseUser
     private $lastname;
 
     /**
+     * @var string
+     * @ORM\Column(type="string", length=50, nullable=true)
+     */
+    private $login;
+
+    /**
      * @ORM\Column(type="datetime",nullable=true)
      */
     private $birthdate;
 
     /**
+     * @var string
      * @ORM\Column(nullable=true)
      */
     private $picture;
@@ -130,6 +137,28 @@ class User extends BaseUser
     }
 
     /**
+     * Set login
+     *
+     * @param string $login
+     * @return User
+     */
+    public function setLogin($login)
+    {
+        $this->login = $login;
+        return $this;
+    }
+
+    /**
+     * Get login
+     *
+     * @return string
+     */
+    public function getLogin()
+    {
+        return $this->login;
+    }
+
+    /**
      * Set birthdate
      *
      * @param \DateTime $birthdate
@@ -172,6 +201,7 @@ class User extends BaseUser
      */
     public function getPicture()
     {
+        //return chaîne de caractères pour chemin vers twig
         return $this->picture;
     }
 

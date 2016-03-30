@@ -13,12 +13,12 @@
 
                 <!-- Titre de la série -->
                 <div class="col-lg-8">
-                    <h1 class="timelineTitle" align="left">{{ serie.title }}</h1>
+                    <h1 class="timelineTitle">{{ serie.title }}</h1>
 
                     <!-- Note de la série (étoiles) -->
                     {#Remplacer 0..4 par 0..'{{ serie.note }}'#}
                     <div class="starsNote">
-                        {% for i in 0..4 %}
+                        {% for i in 0..serie.note %}
                             <span class="glyphicon glyphicon-star"></span>
                         {% endfor %}
                     </div>

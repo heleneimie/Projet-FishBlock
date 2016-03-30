@@ -10,7 +10,8 @@
     <!-- Dernières séries proposées -->
     <section id="serie" class="row">
         <div class="col-lg-12">
-            <h3>Dernières séries ajoutées :</h3>
+
+            <h1>Dernières séries</h1>
             {{ render(controller('AppBundle:Serie:recentSeries',{ 'max': 3})) }}
             <a href={{ path('serie_index') }}><i class="glyphicon glyphicon-plus button pull-right">Voir plus de séries</i></a>
         </div>
@@ -19,7 +20,8 @@
     <!-- Derniers commentaires -->
     <section id="comment" class="row">
         <div class="col-lg-12">
-            <h3>Derniers commentaires :</h3>
+
+            <h1>Derniers commentaires</h1>
             {{ render(controller('AppBundle:Post:recentPosts',{ 'max': 6 })) }}
             <a href="#"><i class="glyphicon glyphicon-plus button pull-right">Voir plus de commentaires</i></a>
         </div>

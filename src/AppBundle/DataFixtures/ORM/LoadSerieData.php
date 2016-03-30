@@ -15,14 +15,18 @@ class LoadSerieData extends AbstractFixture implements OrderedFixtureInterface
         $actors = $manager->getRepository('AppBundle:Actor')->findAll();
         $author = $manager->getRepository('AppBundle:User')->findOneBy(['username'=>'admin']);
         $summary = "Le résumé de votre super serie trop de la balle!";
+        $posters = ['GOT.jpg', 'BreakingBad.jpg', 'MPP.jpg', 'LouisLaBrocante.png', 'HOC.jpg', 'DowntonAbbey.jpg'];
+
         $serie = new Serie;
-        $serie->setTitle('Arrow')
+        $serie->setTitle('Game Of Thrones')
             ->setSeason(1)
             ->setNote(4)
             ->setGenre('Romance')
             ->setSummary($summary)
             ->setActors($actors)
-            ->setAuthor($author);
+            ->setAuthor($author)
+            ->setPoster($posters[0]);
+
         $manager->persist($serie);
         $manager->flush();
 
@@ -33,7 +37,9 @@ class LoadSerieData extends AbstractFixture implements OrderedFixtureInterface
             ->setGenre('Drama')
             ->setSummary($summary)
             ->setActors($actors)
-            ->setAuthor($author);
+            ->setAuthor($author)
+            ->setPoster($posters[1]);
+
         $manager->persist($serie2);
         $manager->flush();
 
@@ -44,7 +50,9 @@ class LoadSerieData extends AbstractFixture implements OrderedFixtureInterface
             ->setGenre('Science Fiction')
             ->setSummary($summary)
             ->setActors($actors)
-            ->setAuthor($author);
+            ->setAuthor($author)
+            ->setPoster($posters[2]);
+
         $manager->persist($serie3);
         $manager->flush();
 
@@ -55,8 +63,36 @@ class LoadSerieData extends AbstractFixture implements OrderedFixtureInterface
             ->setGenre('Horreur')
             ->setSummary($summary)
             ->setActors($actors)
-            ->setAuthor($author);
+            ->setAuthor($author)
+            ->setPoster($posters[3]);
+
         $manager->persist($serie4);
+        $manager->flush();
+
+        $serie5 = new Serie;
+        $serie5->setTitle('House of Cards')
+            ->setSeason(4)
+            ->setNote(7)
+            ->setGenre('Comédie')
+            ->setSummary($summary)
+            ->setActors($actors)
+            ->setAuthor($author)
+            ->setPoster($posters[4]);
+
+        $manager->persist($serie5);
+        $manager->flush();
+
+        $serie6 = new Serie;
+        $serie6->setTitle('Downtown Abbey')
+            ->setSeason(1)
+            ->setNote(10)
+            ->setGenre('Thriller')
+            ->setSummary($summary)
+            ->setActors($actors)
+            ->setAuthor($author)
+            ->setPoster($posters[5]);
+
+        $manager->persist($serie6);
         $manager->flush();
     }
 
