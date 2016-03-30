@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Post
@@ -36,9 +37,15 @@ class Post
     private $content;
 
     /**
-     * @var smallint
+     * @var int
      *
-     * @ORM\Column(name="note", type="smallint", nullable=true)
+     * @ORM\Column(name="note", type="integer", nullable=true)
+     * @Assert\Range(
+     *      min = 0,
+     *      max = 10,
+     *      minMessage = "La note doit être supérieure ou égale à {{ limit }}",
+     *      maxMessage = "La note ne peut pas être supérieure à {{ limit }}"
+     * )
      */
     private $note;
 
@@ -136,8 +143,13 @@ class Post
      */
     public function setNote($note)
     {
-        $this->note = $note;
-
+        if($note < 0){
+            $this->note = 0;
+        } else if($note > 10) {
+            $this->note = 10;
+        } else {
+            $this->note = $note;
+        }
         return $this;
     }
 

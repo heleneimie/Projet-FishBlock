@@ -4,7 +4,7 @@
     <h1>Commentaire de {{ post.author }} sur {{ post.serie.title }}</h1>
 
     <div class="col-lg-4">
-        <img align="left" id="avatar" src="{{ asset(post.author.picture)}}"><br/>
+        <img align="left" id="avatar" src="{{ asset('/images/' ~ post.author.picture)}}"><br/>
 
     </div>
 

@@ -7,7 +7,7 @@
         {% include 'timelineSerieHeader.html.twig' %}
     {% endblock %}
 
-    <!-- Affichage conditionnel bouton Publier un commentaire, si user connecté -->
+    <!-- Bloc gauche -->
     <div class="col-lg-12">
         <div class="col-lg-4 text-center">
             {% if app.user.username is defined %}
@@ -21,40 +21,56 @@
     </div>
 
     <!-- Bloc acteurs -->
-    <div class="col-lg-4">
-        <div class="asideBlock text-center">
-            <div class="asideBlockTitle text-center">
-                <h4>Acteurs</h4>
-            </div>
-            {% for actor in serie.actors %}
-                <div class="asideBlockPictures text-center">
-                    {#Ajouter {{ path('actor_show', { 'id': actor.id }) }} dans le href="" #}
-                    <a href="#">
-                        <div class="actorPicture text-center">
-                            <figure>
-                                {# Ajouter {{ actor.picture }} à la place de src='' #}
-                                <img align="center" src="{{ asset ('bundles/appBundle/images/PhotoProfilHomme.jpg')}}" alt="{{ actor.firstname ~ ' ' ~  actor.lastname }}"><br/>
-                            </figure>
-                        </div>
-                        {#<div class="actorName text-center">#}
-                        {#{{ actor.firstname ~ ' ' ~  actor.lastname }}#}
-                        {#</div>#}
-                    </a>
+    {% if app.user.username is defined %}
+        {{ form_start(delete_form) }}
+        <div class="col-lg-4">
+            <div class="asideBlock text-center">
+                <div class="asideBlockTitle text-center">
+                    <h4>Acteurs</h4>
                 </div>
-            {% endfor %}
+                {% for actor in serie.actors %}
+                    <div class="asideBlockPictures text-center">
+                        {#Ajouter {{ path('actor_show', { 'id': actor.id }) }} dans le href="" pour rediriger vers page acteur #}
+                        <a href="#">
+                            <div class="text-center">
+                                <figure>
+                                    <img class="actorPicture" align="center" src="{{ asset ('/images/' ~ actor.picture) }}" alt="{{ actor.firstname ~ ' ' ~  actor.lastname }}"><br/>
+                                </figure>
+                            </div>
+                            <div class="actorName text-center">
+                                {{ actor.firstname ~ ' ' ~  actor.lastname }}
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <!-- Affichage conditionnel bouton Ajouter un épisode, si user connecté -->
+            {% if app.user.username is defined %}
+
+                <!-- Bouton Ajouter un épisode -->
+                <a href="{{ path('episode_new', { 'id': serie.id }) }}">
+                    <button type="button" class="btn btn-default btn-lg addEpisodeBtn">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter un épisode
+                    </button>
+                </a>
+
+                <!-- Bouton Ajouter un acteur -->
+                {#Ajouter {{ path('actor_new', { 'id': serie.id }) }} dans le href="" pour rediriger vers la page de création d'acteur#}
+                <a href="#">
+                    <button type="button" class="btn btn-default btn-lg addActorBtn">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter un acteur(trice)
+                    </button>
+                </a>
+            {% endif %}
         </div>
+        {{ form_end(delete_form) }}
+    {% endif %}
 
-        <!-- Affichage conditionnel bouton Proposer un épisode, si user connecté -->
-        {% if app.user.username is defined %}
-            <a href="{{ path('episode_new', { 'id': serie.id }) }}">
-                <button type="button" class="btn btn-default btn-lg propSerieBtn">
-                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter un épisode
-                </button>
-            </a>
-        {% endif %}
 
-    </div>
+    <!-- Bloc droit -->
 
+    <!-- Affichage conditionnel bouton Publier un commentaire, si user connecté -->
     <div class="col-lg-8">
         <p><a href="{{ path('serie_index') }}"><< Retour à la liste des séries</a></p>
 
@@ -81,17 +97,14 @@
             <p>Commentaires : {{ serie.comments }}</p>
         {% endif %}
 
+        <!-- Affichage conditionnel boutons modifier et supprimer un épisode, si user connecté -->
+        {% if app.user.username is defined %}
+            <button>
+                <a href="{{ path('serie_edit', { 'id': serie.id }) }}">Modifier</a>
+            </button>
+            <input type="submit" value="Supprimer">
+        {% endif %}
+
     </div>
-
-    <!-- Affichage conditionnel boutons modifier et supprimer un épisode, si user connecté -->
-    {% if app.user.username is defined %}
-        <button>
-            <a href="{{ path('serie_edit', { 'id': serie.id }) }}">Modifier</a>
-        </button>
-
-        {{ form_start(delete_form) }}
-        <input type="submit" value="Supprimer">
-        {{ form_end(delete_form) }}
-    {% endif %}
 
 {% endblock %}

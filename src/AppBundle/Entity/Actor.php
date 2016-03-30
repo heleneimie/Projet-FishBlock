@@ -202,6 +202,6 @@ class Actor
 
     public function __toString()
     {
-        return $this->getFirstname()." ".$this->getLastname()." joue ".$this->getRole();
+        return $this->getFirstname()." ".$this->getLastname();
     }
 }

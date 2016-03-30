@@ -5,7 +5,7 @@
 
     {{ form_start(edit_form) }}
     {{ form_row(edit_form.content, {'label': 'Contenu'}) }}
-    {{ form_row(edit_form.note, {'label': 'Note'}) }}
+    {{ form_row(edit_form.note, {'attr': {'min': '0', 'max': '10'}}) }}
     <input type="submit" value="Modifier" />
     {{ form_end(edit_form) }}
 

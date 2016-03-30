@@ -6,11 +6,9 @@
     {{ form_start(edit_form) }}
     {{ form_row(edit_form.title, {'label': 'Titre de l\'épisode'}) }}
     {{ form_row(edit_form.airdate, {'label': 'Date'}) }}
-    {{ form_row(edit_form.length, {'label': 'Durée (min)'}) }}
-    {{ form_row(edit_form.season, {'label': 'Saison'}) }}
+    {{ form_row(edit_form.season, {'attr': {'min': '1', 'max': '20'}}) }}
     {{ form_row(edit_form.summary, {'label': 'Synopsis'}) }}
-    {{ form_row(edit_form.note, {'label': 'Note'}) }}
-    {{ form_row(edit_form.serie, {'label': 'Série'}) }}
+    {#{{ form_row(edit_form.serie, {'label': 'Série'}) }}#}
     <input type="submit" value="Modifier" />
     {{ form_end(edit_form) }}
 

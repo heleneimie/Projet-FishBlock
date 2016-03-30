@@ -2,12 +2,11 @@
 
     <div class="col-lg-4">
         <a href="/post/{{ post.id }}">
-            <img align="left" id="avatar" src="{{ asset (post.author.picture)}}"><br/>
+            <img align="left" id="avatar" src="{{ asset('/images/' ~ post.author.picture) }}" alt="{{ post.author.login }}"><br/>
         </a>
 
         <strong>Posté le {{ post.date }} par {{ post.author }} :</strong>
         {{ post.content | slice(0,140) }}...
         <a href="/post/{{ post.id }}">Lire la suite</a>
-
     </div>
 {% endfor %}

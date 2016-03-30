@@ -2,15 +2,12 @@
 
 namespace AppBundle\Form;
 
-use AppBundle\AppBundle;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
 
-
-class SerieType extends AbstractType
+class ActorType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -19,12 +16,11 @@ class SerieType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title')
-            ->add('season')
-            ->add('genre')
-            ->add('summary')
-            ->add('poster', FileType::class, array('label' => 'Poster de la série'))
-            ->add('note')
+            ->add('firstname')
+            ->add('lastname')
+            ->add('role')
+            ->add('picture', FileType::class, array('label' => 'Photo de l\'acteur(trice)'))
+            ->add('series')
         ;
     }
     
@@ -34,7 +30,7 @@ class SerieType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Serie'
+            'data_class' => 'AppBundle\Entity\Actor'
         ));
     }
 }

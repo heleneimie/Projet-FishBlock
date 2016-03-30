@@ -4,25 +4,25 @@
     <h1>Modification d'une série</h1>
 
     {{ form_start(edit_form) }}
-        {#{{ form_widget(edit_form) }}#}
+    {#{{ form_widget(edit_form) }}#}
     {{ form_row(edit_form.title, {'label': 'Titre de la série'}) }}
     {{ form_row(edit_form.actors, {'label': 'Acteurs'}) }}
-    {{ form_row(edit_form.season, {'label': 'Saisons'}) }}
+    {{ form_row(edit_form.season, {'attr': {'min': '1', 'max': '20'}}) }}
     {#{{ form_row(edit_form.episodes, {'label': 'Episodes'}) }}#}
     {{ form_row(edit_form.summary, {'label': 'Synopsis'}) }}
     {{ form_row(edit_form.comments, {'label': 'Commentaires'}) }}
-    {{ form_row(edit_form.note, {'label': 'Note'}) }}
-        <input type="submit" value="Modifier" />
+    {{ form_row(edit_form.note, {'attr': {'min': '0', 'max': '10'}}) }}
+    <input type="submit" value="Modifier" />
     {{ form_end(edit_form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('serie_index') }}">Retour à la liste des séries</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Supprimer">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <button type="button" class="btn btn-default">
+        <a href="{{ path('serie_index') }}">Retour à la liste des séries</a>
+    </button>
+
+    <button type="button" class="btn btn-default">
+        {{ form_start(delete_form) }}
+        <input type="submit" value="Supprimer">
+        {{ form_end(delete_form) }}
+    </button>
+
 {% endblock %}

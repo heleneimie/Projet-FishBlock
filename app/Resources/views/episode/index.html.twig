@@ -6,13 +6,10 @@
     <table>
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Titre de l'épisode</th>
                 <th>Date de diffusion</th>
-                <th>Durée (min)</th>
                 <th>Saison</th>
                 <th>Synopsis</th>
-                <th>Note</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -22,10 +19,8 @@
                 <td><a href="{{ path('episode_show', { 'id': episode.id }) }}">{{ episode.id }}</a></td>
                 <td>{{ episode.title }}</td>
                 <td>{% if episode.airdate %}{{ episode.airdate|date('Y-m-d') }}{% endif %}</td>
-                <td>{{ episode.length }}</td>
                 <td>{{ episode.season }}</td>
                 <td>{{ episode.summary }}</td>
-                <td>{{ episode.note }}</td>
                 <td>
                     <ul>
                         <li>

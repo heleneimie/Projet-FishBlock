@@ -18,7 +18,7 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 
     <!-- CSS stylesheet -->
-    <link rel="stylesheet" href="{{ asset('bundles/appBundle/css/master.css')}}" title="Master Css" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('/css/master.css')}}" title="Master Css" type="text/css" />
 
     {% block stylesheets %}{% endblock %}
 
@@ -29,8 +29,13 @@
 <header>
     <div class="row">
         <!-- Logo -->
-        <div class="col-lg-3 ">
-            <img id="logo" src="{{ asset('bundles/appBundle/images/logo_PassionFiction.jpg') }}" alt="logo" />
+        <div class="col-lg-2 ">
+            <a href="{{ path('homepage') }}">
+                <img id="logo" src="{{ asset('/images/logo_PassionFiction.jpg') }}" alt="logo" />
+            </a>
+        </div>
+        <div class="col-lg-10 ">
+            <h1 id="baseline">La fiction, notre passion !</h1>
         </div>
 
         <!-- Verification authentification user -->
