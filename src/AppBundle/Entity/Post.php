@@ -36,9 +36,9 @@ class Post
     private $content;
 
     /**
-     * @var int
+     * @var smallint
      *
-     * @ORM\Column(name="note", type="integer", nullable=true)
+     * @ORM\Column(name="note", type="smallint", nullable=true)
      */
     private $note;
 
@@ -57,6 +57,15 @@ class Post
      * @ORM\JoinColumn(name="author_id", referencedColumnName="id")
      */
     private $author;
+
+    /**
+     * @var string
+     *
+     * @ORM\ManyToOne(targetEntity="Serie", inversedBy="posts")
+     * @ORM\JoinColumn(name="serie_id", referencedColumnName="id")
+     */
+    private $serie;
+
 
     public function __construct()
     {
@@ -86,17 +95,15 @@ class Post
         return $this;
     }
 
-
     /**
      * Get date
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDate()
     {
         return $this->date->format("d-m H:i");
     }
-
 
     /**
      * Set content
@@ -114,7 +121,7 @@ class Post
     /**
      * Get content
      *
-     * @return string 
+     * @return string
      */
     public function getContent()
     {
@@ -137,11 +144,33 @@ class Post
     /**
      * Get note
      *
-     * @return integer 
+     * @return integer
      */
     public function getNote()
     {
         return $this->note;
+    }
+
+    /**
+     * Set serie
+     *
+     * @param string $serie
+     * @return Serie
+     */
+    public function setSerie($serie)
+    {
+        $this->serie = $serie;
+        return $this;
+    }
+
+    /**
+     * Get serie
+     *
+     * @return string
+     */
+    public function getSerie()
+    {
+        return $this->serie;
     }
 
     /**
@@ -167,11 +196,22 @@ class Post
         return $this->language;
     }
 
+    /**
+     * Get author
+     *
+     * @return string
+     */
     public function getAuthor()
     {
         return $this->author;
     }
 
+    /**
+     * Set author
+     *
+     * @param string $author
+     * @return User
+     */
     public function setAuthor($author)
     {
         $this->author = $author;
@@ -182,4 +222,5 @@ class Post
     {
         return $this->getContent();
     }
+
 }

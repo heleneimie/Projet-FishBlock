@@ -161,6 +161,10 @@ h1.timelineTitle{
     margin-top: 20px;
 }
 
+.propSerieBtn{
+    margin-top: 30px;
+}
+
 /* Notes (stars) */
 
 .starsNote{
@@ -209,6 +213,11 @@ h1.timelineTitle{
     margin-top: 40px;
     border: 1px solid #494E71;
     /*min-height: 300px;*/
+}
+
+/* Comments */
+.comment{
+    font-size: 1.5em;
 }
 
 /* Footer */
