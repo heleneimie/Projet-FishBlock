@@ -89,7 +89,6 @@ h1.timelineTitle{
     font-weight: bold;
     margin-top: 50px;
     margin-bottom: 40px;
-    /*margin-left: 40px;*/
 }
 
 .asideBlock{
@@ -111,7 +110,6 @@ h1.timelineTitle{
     height: 80px;
     margin: 5px 5px 5px 5px;
     display: inline-block;
-
 }
 
 /* Posters and pictures */
@@ -159,6 +157,10 @@ h1.timelineTitle{
     margin-bottom: 10px;
 }
 
+.indexBtn{
+    margin-top: 20px;
+}
+
 /* Notes (stars) */
 
 .starsNote{
@@ -200,6 +202,13 @@ h1.timelineTitle{
 
 #socialIcons a{
     color: white;
+}
+
+/* Forum */
+.forum{
+    margin-top: 40px;
+    border: 1px solid #494E71;
+    /*min-height: 300px;*/
 }
 
 /* Footer */

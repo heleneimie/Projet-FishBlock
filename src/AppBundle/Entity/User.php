@@ -189,7 +189,7 @@ class User extends BaseUser
      */
     public function setPicture($picture)
     {
-        $this->picture = $picture;
+        $this->picture = 'bundles/appBundle/images/' . $picture;
 
         return $this;
     }

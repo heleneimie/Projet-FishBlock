@@ -376,7 +376,7 @@ class Serie
 
     public function setPoster($poster)
     {
-        $this->poster = $poster;
+        $this->poster = 'bundles/appBundle/images/' . $poster;
 
         return $this;
     }
