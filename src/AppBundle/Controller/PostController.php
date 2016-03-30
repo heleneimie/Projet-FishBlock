@@ -16,22 +16,6 @@ use AppBundle\Form\PostType;
  */
 class PostController extends Controller
 {
-    /**
-     * Lists all Post entities.
-     *
-     * @Route("/", name="post_index")
-     * @Method("GET")
-     */
-    public function indexAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $posts = $em->getRepository('AppBundle:Post')->findAll();
-
-        return $this->render('post/index.html.twig', array(
-            'posts' => $posts,
-        ));
-    }
 
     public function recentPostsAction($max = 5)
     {

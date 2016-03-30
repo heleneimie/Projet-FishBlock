@@ -14,13 +14,15 @@ class LoadPostData extends AbstractFixture implements OrderedFixtureInterface
     public function load(ObjectManager $manager){
 
         $authors = $manager->getRepository('AppBundle:User')->findAll();
+        $serie = $manager->getRepository('AppBundle:Serie')->findOneBy(['title' => 'Downtown Abbey']);
         for($i=0;$i<5;$i++){
 
             $post = new Post();
             $post->setContent('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad beatae consequatur deleniti deserunt
             dolor dolorem dolores dolorum error, inventore laborum molestias mollitia necessitatibus nobis,
             officiis repellendus saepe sapiente velit veniam.')
-                ->setAuthor($authors[$i]);
+                ->setAuthor($authors[$i])
+                ->setSerie($serie);
 
             $manager->persist($post);
             $manager->flush();

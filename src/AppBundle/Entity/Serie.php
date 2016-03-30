@@ -74,9 +74,9 @@ class Serie
     private $comments;
 
     /**
-     * @var int
+     * @var smallint
      *
-     * @ORM\Column(name="note", type="integer", nullable=true)
+     * @ORM\Column(name="note", type="smallint", nullable=true)
      */
     private $note;
 
@@ -89,6 +89,13 @@ class Serie
     private $author;
 
     /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="Post", mappedBy="serie")
+     */
+    private $posts;
+
+    /**
      * @var DateTime
      * @ORM\Column(name="date", type="datetime")
      */
@@ -99,6 +106,17 @@ class Serie
      * @ORM\Column(name="poster", type="string")
      */
     private $poster;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->date = new \DateTime();
+        $this->actors = new ArrayCollection();
+        $this->episodes = new ArrayCollection();
+        $this->posts = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -234,14 +252,38 @@ class Serie
     {
         return $this->note;
     }
+
     /**
-     * Constructor
+     * Set posts (used for fixtures)
+     *
      */
-    public function __construct()
+    public function setPosts($posts)
     {
-        $this->date = new \DateTime();
-        $this->actors = new ArrayCollection();
-        $this->episodes = new ArrayCollection();
+        foreach($posts as $post){
+            $post->addSerie($this);
+        }
+        $this->posts = $posts;
+        return $this;
+    }
+
+    /**
+     * Add post
+     *
+     * @param \AppBundle\Entity\Post $post
+     * @return Post
+     */
+    public function addPost(Post $post)
+    {
+        $post->addSerie($this);
+        $this->posts[] = $post;
+
+        return $this;
+    }
+
+
+    public function getPosts()
+    {
+        return $this->posts;
     }
 
     /**
@@ -323,7 +365,7 @@ class Serie
     /**
      * Get title
      *
-     * @return string 
+     * @return string
      */
     public function getTitle()
     {
@@ -346,7 +388,7 @@ class Serie
     /**
      * Get genre
      *
-     * @return string 
+     * @return string
      */
     public function getGenre()
     {

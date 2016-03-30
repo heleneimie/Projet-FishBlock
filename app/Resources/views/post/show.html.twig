@@ -1,42 +1,53 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Commentaire de {{ post.author }}</h1>
-
-    <strong>Posté le {% if post.date %} à {{ post.date }}{% endif %}</strong>
-
-    <!-- Note du commentaire (étoiles) -->
-    <span class="starsNote">
-        {% for i in 0..post.note %}
-            <span class="glyphicon glyphicon-star"></span>
-        {% endfor %}
-    </span>
-
+    <h1>Commentaire de {{ post.author }} sur {{ post.serie.title }}</h1>
 
     <div class="col-lg-4">
         <img align="left" id="avatar" src="{{ asset(post.author.picture)}}"><br/>
+
+    </div>
+
+    <div class="col-lg-8">
+        <p><a href="{{ path('serie_show', {'id': post.serie.id}) }}"><< Retour à la série</a></p>
+        <strong>Posté le {% if post.date %} à {{ post.date }}{% endif %}</strong>
+
+        <!-- Note du commentaire (étoiles) -->
+        <p>Note du commentaire :
+            <span class="starsNote">
+            {% for i in 0..post.note %}
+                <span class="glyphicon glyphicon-star"></span>
+                {% for j in post.note..10 %}
+                <span class="glyphicon glyphicon-star-empty"></span>
+            {% endfor %}
+            {% endfor %}
+            </span>
+        </p>
+
+        <!-- Contenu du commentaire -->
+        <p class="comment">{{ post.content }}</p>
+
+        {% if app.user.username is defined %}
+            <a href="{{ path('post_edit', { 'id': post.id }) }}">
+                <button type="button" class="btn btn-default">Modifier</button>
+            </a>
+
+            {{ form_start(delete_form) }}
+            <input type="submit" value="Supprimer">
+            {{ form_end(delete_form) }}
+        {% endif %}
+    </div>
+
+    <div class="col-lg-12">
+        <a href="{{ path('post_edit', { 'id': post.id }) }}">
+            <button type="button" class="btn btn-default">Noter le commentaire</button>
+        </a>
     </div>
 
 
 
-    <i class="fa fa-comment fa-3x"></i>
-    <p>{{ post.content }}</p>
 
-    <input type="button" class="btn" value="Noter le commentaire">
+    {#<td>{% if post.language %}{{ post.language|join(', ') }}{% endif %}</td>#}
 
 
-                {#<td>{% if post.language %}{{ post.language|join(', ') }}{% endif %}</td>#}
-    <ul>
-        <li>
-            <a href="{{ path('post_index') }}">Retour à la liste des posts</a>
-        </li>
-        <li>
-            <a href="{{ path('post_edit', { 'id': post.id }) }}">Modifier</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Supprimer">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
 {% endblock %}
