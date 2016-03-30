@@ -201,7 +201,6 @@ class User extends BaseUser
      */
     public function getPicture()
     {
-        //return chaîne de caractères pour chemin vers twig
         return $this->picture;
     }
 

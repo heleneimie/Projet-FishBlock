@@ -58,7 +58,7 @@ class SerieController extends Controller
     {
         $serie = new Serie();
         $form = $this->createForm('AppBundle\Form\SerieType', $serie);
-        $author = $request->getUser();
+        $author = $this->getUser();
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

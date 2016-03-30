@@ -1,5 +1,6 @@
 /web/bundles/framework
 /web/bundles/*
+/web/images
 !/web/bundles/appBundle
 /app/bootstrap.php.cache
 /app/cache/*

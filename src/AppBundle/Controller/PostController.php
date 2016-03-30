@@ -39,11 +39,12 @@ class PostController extends Controller
     public function newAction(Request $request)
     {
         $post = new Post();
+        $author = $this->getUser();
         $form = $this->createForm('AppBundle\Form\PostType', $post);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $post->setAuthor($this->getUser());
+            $post->setAuthor($author);
             $em = $this->getDoctrine()->getManager();
             $em->persist($post);
             $em->flush();
