@@ -53,7 +53,7 @@ class Post
     /**
      * @var string
      *
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="posts")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="comments")
      * @ORM\JoinColumn(name="author_id", referencedColumnName="id")
      */
     private $author;

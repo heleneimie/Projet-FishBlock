@@ -68,14 +68,14 @@ class User extends BaseUser
     /**
      * @var ArrayCollection
      *
-     * @ORM\OneToMany(targetEntity="Serie", mappedBy="author")
+     * @ORM\OneToMany(targetEntity="Serie", mappedBy="author", cascade={"persist","remove"})
      */
     private $seriesProposed;
     
     /**
      * @var ArrayCollection
      *
-     * @ORM\OneToMany(targetEntity="Post", mappedBy="author")
+     * @ORM\OneToMany(targetEntity="Post", mappedBy="author", cascade={"persist","remove"})
      */
     private $comments;
 

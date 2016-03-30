@@ -10,6 +10,7 @@
     <!-- Dernières séries proposées -->
     <section id="serie" class="row">
         <div class="col-lg-12">
+
             <h1>Dernières séries</h1>
             {{ render(controller('AppBundle:Serie:recentSeries',{ 'max': 3})) }}
 
@@ -24,6 +25,7 @@
     <!-- Derniers commentaires -->
     <section id="comment" class="row">
         <div class="col-lg-12">
+
             <h1>Derniers commentaires</h1>
             {{ render(controller('AppBundle:Post:recentPosts',{ 'max': 6 })) }}
         </div>
