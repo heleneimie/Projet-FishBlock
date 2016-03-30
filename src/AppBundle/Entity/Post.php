@@ -51,7 +51,7 @@ class Post
     private $language;
 
     /**
-     * @var string
+     * @var User
      *
      * @ORM\ManyToOne(targetEntity="User", inversedBy="comments")
      * @ORM\JoinColumn(name="author_id", referencedColumnName="id")

@@ -1,8 +1,9 @@
 {% for serie in series %}
 
     <div class="col-lg-4">
+
         <a href="/serie/{{ serie.id }}">
-            <img align="left" id="posterHome" src="{{ asset(serie.poster)}}" alt="{{ serie.title }}"><br/>
+            <img align="left" id="posterHome" src="{{ asset( '/images/'~ serie.poster)}}" alt="{{ serie.title }}"><br/>
         </a>
 
         <strong>Proposée le {{ serie.date }} par {{ serie.author }} :</strong>

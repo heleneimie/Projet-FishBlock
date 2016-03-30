@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use AppBundle\Entity\Serie;
 use AppBundle\Form\SerieType;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Session\Session;
 
 /**
@@ -61,10 +62,23 @@ class SerieController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // Set serie author to the current User
             $serie->setAuthor($author);
+            /** @var UploadedFile $file */
+            $file = $serie->getPoster();
+            // Generate a unique name for the file before saving it
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            // Move the file to the directory where posters are stored
+            $imagesDir= $this->container->getParameter('kernel.root_dir').'/../web/images';
+            $file->move($imagesDir, $fileName);
+            // Update the 'poster' property to store the image file name
+            // instead of its contents
+            $serie->setPoster($fileName);
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($serie);
             $em->flush();
+            // Send a message to Flashbag to confirm action
             $this->addFlash('alert alert-success','Votre série est en attente de validation');
 
             return $this->redirectToRoute('serie_show', array('id' => $serie->getId()));
@@ -108,7 +122,7 @@ class SerieController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($serie);
             $em->flush();
-            
+
 
             return $this->redirectToRoute('serie_edit', array('id' => $serie->getId()));
         }
@@ -153,6 +167,6 @@ class SerieController extends Controller
             ->setAction($this->generateUrl('serie_delete', array('id' => $serie->getId())))
             ->setMethod('DELETE')
             ->getForm()
-        ;
+            ;
     }
 }

@@ -308,6 +308,7 @@ class User extends BaseUser
     public function setSeriesProposed($seriesProposed)
     {
         $this->seriesProposed = $seriesProposed;
+        return $this;
     }
 
     /**

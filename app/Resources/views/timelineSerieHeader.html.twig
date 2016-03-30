@@ -5,8 +5,7 @@
             <div class="input-group stylish-input-group">
                 <div class="col-lg-4">
                     {#Mettre {{ serie.poster }} dans src=""#}
-                    <img align="center" id="imageTimeline" src="{{ asset(serie.poster)}}" alt="{{ serie.title }}">
-
+                    <img align="center" id="imageTimeline" src="{{ asset('/images/' ~ serie.poster)}}" alt="{{ serie.title }}">
                     <!-- Bouton pour suivre la série -->
                     <input type="button" class="btn btn-default btn-lg buttonTimeline" value="Suivre la série"/>
                 </div>
