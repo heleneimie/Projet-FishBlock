@@ -1,11 +1,13 @@
 {% for post in posts %}
 
     <div class="col-lg-4">
-        <img align="left" id="avatar" src="{{ asset ('bundles/appBundle/images/' ~ post.author.picture)}}"><br/>
-            <strong>Posté le {{ post.date }} par {{ post.author }} :</strong>
-        {{ post.content | slice(0,140) }}...
-        <a href="/post/{{ post.id }}">Lire la suite
+        <a href="/post/{{ post.id }}">
+            <img align="left" id="avatar" src="{{ asset (post.author.picture)}}"><br/>
         </a>
+
+        <strong>Posté le {{ post.date }} par {{ post.author }} :</strong>
+        {{ post.content | slice(0,140) }}...
+        <a href="/post/{{ post.id }}">Lire la suite</a>
 
     </div>
 {% endfor %}

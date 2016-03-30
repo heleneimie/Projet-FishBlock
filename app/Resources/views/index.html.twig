@@ -13,7 +13,12 @@
 
             <h1>Dernières séries</h1>
             {{ render(controller('AppBundle:Serie:recentSeries',{ 'max': 3})) }}
-            <a href={{ path('serie_index') }}><i class="glyphicon glyphicon-plus button pull-right">Voir plus de séries</i></a>
+
+            <div class="col-lg-12 text-right indexBtn">
+                <a href={{ path('serie_index') }}>
+                    <button type="button" class="btn btn-default">Voir la liste des séries</button>
+                </a>
+            </div>
         </div>
     </section>
 
@@ -23,13 +28,14 @@
 
             <h1>Derniers commentaires</h1>
             {{ render(controller('AppBundle:Post:recentPosts',{ 'max': 6 })) }}
-            <a href="#"><i class="glyphicon glyphicon-plus button pull-right">Voir plus de commentaires</i></a>
         </div>
     </section>
 
     <!-- Forum -->
-    {% block forum %}
-        {% include 'forum.html.twig' %}
-    {% endblock %}
+    <div class="col-lg-12 forum">
+        {% block forum %}
+            {% include 'forum.html.twig' %}
+        {% endblock %}
+    </div>
 
 {% endblock %}
