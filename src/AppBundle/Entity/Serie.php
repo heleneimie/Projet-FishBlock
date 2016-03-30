@@ -376,14 +376,13 @@ class Serie
 
     public function setPoster($poster)
     {
-        $this->poster = 'bundles/appBundle/images/' . $poster;
+        $this->poster = $poster;
 
         return $this;
     }
 
     public function getPoster()
     {
-        //return chaîne de caractères pour chemin vers twig
         return $this->poster;
     }
 

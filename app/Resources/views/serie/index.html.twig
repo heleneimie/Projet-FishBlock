@@ -24,7 +24,7 @@
                 <div class="seriePoster text-center">
                     <figure>
                         {# Ajouter {{ serie.poster }} à la place de src='' #}
-                        <img align="center" id="posterSeries" src="{{ asset(serie.poster)}}" alt="{{ serie.title }}"><br/>
+                        <img align="center" id="posterSeries" src="{{ asset('/images/'~ serie.poster)}}" alt="{{ serie.title }}"><br/>
                     </figure>
                 </div>
                 <div class="serieTitle text-center">

@@ -7,6 +7,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 
 class SerieType extends AbstractType
@@ -22,6 +23,7 @@ class SerieType extends AbstractType
             ->add('season')
             ->add('genre')
             ->add('summary')
+            ->add('poster', FileType::class, array('label' => 'Poster de la série'))
         ;
     }
     
