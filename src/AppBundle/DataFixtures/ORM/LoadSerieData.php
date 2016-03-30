@@ -103,6 +103,6 @@ class LoadSerieData extends AbstractFixture implements OrderedFixtureInterface
      */
     public function getOrder()
     {
-        // TODO: Implement getOrder() method.
+        return 3;
     }
 }

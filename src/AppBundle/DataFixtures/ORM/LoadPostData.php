@@ -29,6 +29,6 @@ class LoadPostData extends AbstractFixture implements OrderedFixtureInterface
 
     public function getOrder()
     {
-        // TODO: Implement getOrder() method.
+        return 4;
     }
 }
