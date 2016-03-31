@@ -9,9 +9,13 @@
                     <img align="center" id="imageTimeline" src="{{ asset('/images/' ~ serie.poster)}}" alt="{{ serie.title }}">
 
                     <!-- Bouton pour suivre la série -->
-                    <button type="button" class="btn btn-default btn-lg buttonTimeline">
-                        <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Suivre la série
-                    </button>
+                    {% if app.user.id is defined %}
+                        <a href="{{ path('follow_serie', { 'id': serie.id }) }}">
+                            <button type="button" class="btn btn-default btn-lg buttonTimeline">
+                                <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Suivre la série
+                            </button>
+                        </a>
+                    {% endif %}
                 </div>
 
                 <!-- Titre de la série -->

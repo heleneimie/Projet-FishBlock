@@ -9,18 +9,19 @@
                     <img align="center" id="imageTimeline" src="{{ asset('/images/' ~ user.picture)}}" alt="{{ user.firstname ~ ' ' ~ user.lastname }}">
 
                     <!-- Bouton pour devenir ami avec le user -->
+                    {% if app.user.id != user.id %}
                     <button type="button" class="btn btn-default btn-lg buttonTimeline">
                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Devenir ami(e)
                     </button>
+                    {% endif %}
                 </div>
 
                 <!-- Nom du user -->
                 <div class="col-lg-8">
-                    <h1 class="timelineTitle">{{ user.firstname ~ ' ' ~ user.lastname }}</h1>
-                    </div>
+                    <h1 class="timelineTitle">Profil de  {{ user.username }}</h1>
                 </div>
-
             </div>
+
         </div>
     </div>
 </div>

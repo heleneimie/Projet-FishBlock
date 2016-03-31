@@ -4,8 +4,10 @@
     <li class="EffectYellow"><a href={{ path('serie_index') }}>SERIES</a></li>
     <li class="EffectRed"><a href="{{ path('wip_index') }}">MEMBRES</a></li>
     {#Ajouter {{ path('user_show') pour faire la redirection vers le wall user}}#}
-    <li class="EffectOrange"><a href="#">PROFIL</a></li>
-    <li class="EffectGreen"><a href="{{ path('homepage') }}#forum">FORUM</a></li>
+    {% if app.user.id is defined %}
+    <li class="EffectOrange"><a href="{{ path('user_show', {'id': app.user.id}) }}">PROFIL</a></li>
+    {% endif %}
+    <li class="EffectGreen"><a href="#">FORUM</a></li>
 
     <!-- Connexion / Inscription -->
     {% block login %}

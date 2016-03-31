@@ -73,6 +73,12 @@ class User extends BaseUser
      */
     private $comments;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Serie", inversedBy="followedBy", cascade={"persist", "remove"})
+     * @ORM\JoinTable(name="series_followed")
+     */
+    private $seriesFollowed;
+
 
     public function __construct()
     {
@@ -82,6 +88,7 @@ class User extends BaseUser
         $this->seriesProposed = new ArrayCollection();
         $this->comments = new ArrayCollection();
         $this->created = new \DateTime();
+        $this->seriesFollowed = new ArrayCollection();
     }
 
     /**
@@ -179,12 +186,12 @@ class User extends BaseUser
     /**
      * Add friendsWithMe
      *
-     * @param \AppBundle\Entity\User $friendsWithMe
+     * @param \AppBundle\Entity\User $user
      * @return User
      */
-    public function addFriendsWithMe(\AppBundle\Entity\User $friendsWithMe)
+    public function addFriendsWithMe(\AppBundle\Entity\User $user)
     {
-        $this->friendsWithMe[] = $friendsWithMe;
+        $this->friendsWithMe[] = $user;
 
         return $this;
     }
@@ -192,11 +199,11 @@ class User extends BaseUser
     /**
      * Remove friendsWithMe
      *
-     * @param \AppBundle\Entity\User $friendsWithMe
+     * @param \AppBundle\Entity\User $user
      */
-    public function removeFriendsWithMe(\AppBundle\Entity\User $friendsWithMe)
+    public function removeFriendsWithMe(\AppBundle\Entity\User $user)
     {
-        $this->friendsWithMe->removeElement($friendsWithMe);
+        $this->friendsWithMe->removeElement($user);
     }
 
     /**
@@ -212,24 +219,28 @@ class User extends BaseUser
     /**
      * Add myFriends
      *
-     * @param \AppBundle\Entity\User $myFriends
+     * @param \AppBundle\Entity\User $user
      * @return User
      */
-    public function addMyFriend(\AppBundle\Entity\User $myFriends)
+    public function addMyFriend(\AppBundle\Entity\User $user)
     {
-        $this->myFriends[] = $myFriends;
-
-        return $this;
+        foreach ($this->myFriends as $friend){
+            if($friend == $user){
+                return false;
+            }
+        }
+        $this->myFriends[] = $user;
+        return true;
     }
 
     /**
      * Remove myFriends
      *
-     * @param \AppBundle\Entity\User $myFriends
+     * @param \AppBundle\Entity\User $user
      */
-    public function removeMyFriend(\AppBundle\Entity\User $myFriends)
+    public function removeMyFriend(\AppBundle\Entity\User $user)
     {
-        $this->myFriends->removeElement($myFriends);
+        $this->myFriends->removeElement($user);
     }
 
     /**
@@ -304,4 +315,31 @@ class User extends BaseUser
     {
         $this->seriesProposed->removeElement($serie);
     }
+
+    public function addSeriesFollowed($serie)
+    {
+        foreach ($this->seriesFollowed as $sFollowed){
+            if($sFollowed == $serie){
+                return false;
+            }
+        }
+        $this->seriesFollowed[] = $serie;
+        $serie->setFollowedBy($this);
+        return true;
+            
+    }
+
+    public function removeSeriesFollowed($serie)
+    {
+        $this->seriesFollowed->removeElement($serie);
+        $serie->removeFollowedBy($this);
+    }
+
+
+    public function getSeriesFollowed()
+    {
+        return $this->seriesFollowed;
+    }
+    
+    
 }
