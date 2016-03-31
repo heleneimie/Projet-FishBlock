@@ -98,6 +98,10 @@ h3{
     min-height: 100%;
 }
 
+#forum{
+    border-color: white;
+}
+
 /**** Home ****/
 
 #serieTitleHome{
@@ -124,7 +128,7 @@ h3{
 
 /**** Serie_show ****/
 
-.timelineSerieHeader{
+.timelineSerieHeader, .timelineUserHeader{
     margin-top: -20px;
     margin-bottom: 40px;
     box-shadow: 2px 2px 12px #aaa;
@@ -265,8 +269,6 @@ h1.timelineTitle{
 
 .forum{
     margin-top: 40px;
-    border: 1px solid #494E71;
-    /*min-height: 300px;*/
 }
 
 /**** Comments ****/
@@ -277,9 +279,4 @@ h1.timelineTitle{
 
 #commentList{
     margin-top: 10px;
-}
-
-/**** Footer ****/
-.footer{
-    height: 100px;
 }
