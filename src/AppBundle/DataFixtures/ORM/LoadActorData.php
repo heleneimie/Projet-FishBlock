@@ -21,17 +21,21 @@ class LoadActorData extends AbstractFixture implements OrderedFixtureInterface
     {
         $this->container = $container;
     }
-    
+
     public function load(ObjectManager $manager)
     {
-        $actFirstames = ["Brian","Robert", "Angela","Raoul", "Emilia","Wilfried"];
-        $actLastnames = ["Cranston","Duval", "Lansbury","Duschmoll", "Clarke","Kraspek"];
-        $pictures = ['BrianCranston.jpg', 'RobertDuval.jpg', 'AngelaLansbury.jpg', 'RaoulDuchmol.jpg', 'EmiliaClarke.jpg', 'WilfriedKraspek.jpg'];
-        for ($i=0;$i<6;$i++){
+        $actFirstames = ["Brian","Robert", "Angela","Raoul", "Emilia","Wilfried", "Kit", "Peter", "Jack", "Benedict", "Martin", "Toby", "Christopher", "Homer"];
+        $actLastnames = ["Cranston","Duval", "Lansbury","Duschmoll", "Clarke","Kraspek", "Harington", "Dinklage", " Gleeson", "Cumberbatch", "Freeman", "Stephens", "Eccleston", "Simpson"];
+        $pictures = ['BrianCranston.jpg', 'RobertDuval.jpg', 'AngelaLansbury.jpg', 'RaoulDuchmol.jpg', 'EmiliaClarke.jpg',
+        'WilfriedKraspek.jpg', 'KitHarington.jpg', 'PeterDinklage.jpg', 'JackGleeson.jpg', 'Cumberbatch.jpg', 'Freeman.jpg',
+         'Toby.jpg', "Christopher_Eccleston.jpg", "Homer.png"];
+        $actRole = ["Walter White", "Wayne Kramer", "Jessica Fletcher", "Un poney", "Daenerys", "La Selle du poney", "Jon Snow", "Tyrion","Geoffray",
+        "Sherlock","Dr Watson", "Cpt Flint", "Dr Who", "Homer Simpson"];
+        for($i=0;$i<14;$i++){
             $actor = new Actor;
             $actor->setFirstname($actFirstames[$i])
                 ->setLastname($actLastnames[$i])
-                ->setRole("Un poney")
+                ->setRole($actRole[$i])
                 ->setPicture($pictures[$i])
             ;
 

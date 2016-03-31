@@ -15,7 +15,7 @@ class LoadSerieData extends AbstractFixture implements OrderedFixtureInterface
         $actors = $manager->getRepository('AppBundle:Actor')->findAll();
         $author = $manager->getRepository('AppBundle:User')->findOneBy(['username'=>'admin']);
         $summary = "Le résumé de votre super serie trop de la balle!";
-        $posters = ['GOT.jpg', 'BreakingBad.jpg', 'MPP.jpg', 'LouisLaBrocante.png', 'HOC.jpg', 'DowntonAbbey.jpg'];
+        $posters = ['GOT.jpg', 'BreakingBad.jpg', 'MPP.jpg', 'LouisLaBrocante.png', 'HOC.jpg', 'DowntonAbbey.jpg', 'Sherlock.jpeg', 'DrWho.jpe', 'Les_simpson_logo_France.png'];
 
         $serie = new Serie;
         $serie->setTitle('Game Of Thrones')
@@ -94,8 +94,46 @@ class LoadSerieData extends AbstractFixture implements OrderedFixtureInterface
 
         $manager->persist($serie6);
         $manager->flush();
-    }
 
+    $serie7 = new Serie;
+    $serie7->setTitle('Sherlock')
+        ->setSeason(1)
+        ->setNote(10)
+        ->setGenre('Policier')
+        ->setSummary($summary)
+        ->setActors($actors)
+        ->setAuthor($author)
+        ->setPoster($posters[6]);
+
+    $manager->persist($serie7);
+    $manager->flush();
+
+    $serie8 = new Serie;
+    $serie8->setTitle('Doctor Who')
+        ->setSeason(1)
+        ->setNote(10)
+        ->setGenre('S-F')
+        ->setSummary($summary)
+        ->setActors($actors)
+        ->setAuthor($author)
+        ->setPoster($posters[7]);
+
+    $manager->persist($serie8);
+    $manager->flush();
+
+    $serie9 = new Serie;
+    $serie9->setTitle('Les simpson')
+        ->setSeason(1)
+        ->setNote(10)
+        ->setGenre('Dessin animé')
+        ->setSummary($summary)
+        ->setActors($actors)
+        ->setAuthor($author)
+        ->setPoster($posters[8]);
+
+    $manager->persist($serie9);
+    $manager->flush();
+}
     /**
      * Get the order of this fixture
      *

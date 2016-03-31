@@ -32,10 +32,8 @@
     </section>
 
     <!-- Forum -->
-    <div class="col-lg-12 forum">
-        {% block forum %}
-            {% include 'forum.html.twig' %}
-        {% endblock %}
-    </div>
+    {% block forum %}
+        {% include 'forum.html.twig' %}
+    {% endblock %}
 
 {% endblock %}
