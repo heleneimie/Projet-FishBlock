@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Serie;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -33,10 +34,10 @@ class PostController extends Controller
     /**
      * Creates a new Post entity.
      *
-     * @Route("/new", name="post_new")
+     * @Route("/new/{id}", name="post_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, Serie $serie)
     {
         $post = new Post();
         $author = $this->getUser();
@@ -45,16 +46,18 @@ class PostController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $post->setAuthor($author);
+            $post->setSerie($serie);
             $em = $this->getDoctrine()->getManager();
             $em->persist($post);
             $em->flush();
             $this->addFlash('alert alert-success','Votre commentaire est en attente de validation');
 
-            return $this->redirectToRoute('homepage');
+            return $this->redirectToRoute('serie_show', ['id' => $serie->getId()]);
         }
 
         return $this->render('post/new.html.twig', array(
             'post' => $post,
+            'serie' => $serie,
             'form' => $form->createView(),
         ));
     }
@@ -92,7 +95,7 @@ class PostController extends Controller
             $em->persist($post);
             $em->flush();
 
-            return $this->redirectToRoute('post_edit', array('id' => $post->getId()));
+            return $this->redirectToRoute('post_show', array('id' => $post->getId()));
         }
 
         return $this->render('post/edit.html.twig', array(

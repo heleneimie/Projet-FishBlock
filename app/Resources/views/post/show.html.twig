@@ -10,6 +10,8 @@
 
     <div class="col-lg-8">
         <p><a href="{{ path('serie_show', {'id': post.serie.id}) }}"><< Retour à la série</a></p>
+
+        <i class="fa fa-quote-left fa-5x"></i>
         <strong>Posté le {% if post.date %} à {{ post.date }}{% endif %}</strong>
 
         <!-- Note du commentaire (étoiles) -->
@@ -17,10 +19,10 @@
             <span class="starsNote">
             {% for i in 0..post.note %}
                 <span class="glyphicon glyphicon-star"></span>
+            {% endfor %}
                 {% for j in post.note..10 %}
                 <span class="glyphicon glyphicon-star-empty"></span>
-            {% endfor %}
-            {% endfor %}
+                {% endfor %}
             </span>
         </p>
 
@@ -33,7 +35,7 @@
             </a>
 
             {{ form_start(delete_form) }}
-            <input type="submit" value="Supprimer">
+            <input type="submit" value="Supprimer" class="btn btn-default">
             {{ form_end(delete_form) }}
         {% endif %}
     </div>
