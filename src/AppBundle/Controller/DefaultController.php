@@ -36,5 +36,12 @@ class DefaultController extends Controller
             array('name' => $test, 'id' => $test2, 'email' => $test3)
         );
     }
+
+    /**
+     * @Route("/wip", name="wip_index")
+     */
+    public function workInProgressIndexAction(){
+        return $this->render('workInProgress.html.twig');
+    }
 }
 
