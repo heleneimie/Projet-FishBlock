@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Commentaire de {{ post.author }} sur {{ post.serie.title }}</h1>
+    <h1>Commentaire de {{ post.author.username }} sur {{ post.serie.title }}</h1>
 
     <div class="col-lg-4">
         <img align="left" id="avatar" src="{{ asset('/images/' ~ post.author.picture)}}"><br/>
@@ -27,7 +27,7 @@
         <!-- Contenu du commentaire -->
         <p class="comment">{{ post.content }}</p>
 
-        {% if app.user.username is defined %}
+        {% if post.author.id == app.user.id %}
             <a href="{{ path('post_edit', { 'id': post.id }) }}">
                 <button type="button" class="btn btn-default">Modifier</button>
             </a>

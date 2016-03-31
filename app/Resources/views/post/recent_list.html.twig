@@ -2,7 +2,7 @@
 
     <div class="col-lg-4">
         <a href="/post/{{ post.id }}">
-            <img align="left" id="avatar" src="{{ asset('/images/' ~ post.author.picture) }}" alt="{{ post.author.login }}"><br/>
+            <img align="left" id="avatar" src="{{ asset('/images/' ~ post.author.picture) }}" alt="{{ post.author.username }}"><br/>
         </a>
 
         <strong>Posté le {{ post.date }} par {{ post.author }} :</strong>
