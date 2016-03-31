@@ -34,4 +34,12 @@ class UserController extends Controller
         ));
     }
 
+    /**
+     *
+     * @Route("/userWall/{id}", name="user_show")
+     */
+    public function userWallAction(User $user)
+    {
+        return $this->render('wall.html.twig', ['user' => $user]);
+    }
 }
