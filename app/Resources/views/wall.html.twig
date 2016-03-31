@@ -48,10 +48,9 @@
         <div class="asideBlockTitle text-center">
             <h4>Mes amis</h4>
         </div>
-        {{ dump(user.myFriends) }}
         {% for friend in user.myFriends %}
-
             <div class="asideBlockPictures text-center">
+                {{ friend.username }}
                 <a href="{{ path('user_show', { 'id': friend.id }) }}">
                     <div class="text-center">
                         <figure>
