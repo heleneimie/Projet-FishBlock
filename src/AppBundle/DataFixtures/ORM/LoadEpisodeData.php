@@ -14,17 +14,33 @@ class LoadEpisodeData extends AbstractFixture implements OrderedFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
-        $epTitle = ["L'hiver", "La Route royale", "Lord", "Infirmes", " Bâtards et Choses", "Le Loup et le Lion", "Une couronne dorée",
-         "Gagner ou mourir", "Frapper d'estoc", "Baelor", "Une étude en rose", "Le Banquier aveugle", "Le Grand Jeu",  "Rose",
-         "La Fin du monde", "Des morts inassouvis", "L'Humanité en péril", "Troisième Guerre mondiale", "Dalek", "Un jeu interminable",
-         "Fêtes des pères", "Drôle de mort", "Le Docteur danse", "L\'Explosion de Cardiff", "Le Grand Méchant Loup", "À la croisée des chemins",
-     "Noël mortel ","Bart le génie", "Un atome de bon sens", "Simpsonothérapie","Terreur à la récré", "Ste Lisa Blues","L'Abominable Homme des bois","Bart a perdu la tête",
- "Marge perd la boule","L'Odyssée d'Homer","L'Espion qui venait de chez moi", "Un clown à l'ombre","Une soirée d'enfer"];
-        $epSummary = ["Sur le continent de Westeros, un jeune patrouilleur de la Garde de Nuit, chargée de veiller sur le Mur, est condamné à mort pour désertion par Eddard Stark, seigneur de Winterfell et Gardien du Nord. ",
-    "Daenerys Targaryen, fraîchement mariée au khal Drogo, entreprend avec les Dothrakis et son frère le long voyage vers Vaes Dothrak. Afin de mieux satisfaire son mari et de prendre du plaisir à le faire, elle prend des leçons d’amour auprès d'une de ses caméristes. ",
-"À peine arrivé à Port-Réal, Eddard Stark est convoqué à une session du conseil restreint et découvre alors que le royaume est fortement endetté et doit beaucoup d'argent aux Lannister.",
-"Après un bref passage à Winterfell où il constate le handicap de Bran et donne les plans d'une selle adaptée au jeune paralysé, Tyrion Lannister repart pour Port-Réal, déçu de l'accueil glacial qui lui a été prodigué chez les Stark. ",
-"Catelyn Stark, qui a quitté brutalement Winterfell, mène Tyrion Lannister vers la demeure de sa sœur pour qu'il y soit jugé.",
+        $epTitle = ["L'hiver", "La Route royale", "Lord", "Infirmes", " Bâtards et Choses", "Le Loup et le Lion",
+            "Une couronne dorée", "Gagner ou mourir", "Frapper d'estoc", "Baelor", "Une étude en rose",
+            "Le Banquier aveugle", "Le Grand Jeu",  "Rose", "La Fin du monde", "Des morts inassouvis",
+            "L'Humanité en péril", "Troisième Guerre mondiale", "Dalek", "Un jeu interminable",
+            "Fêtes des pères", "Drôle de mort", "Le Docteur danse", "L\'Explosion de Cardiff",
+            "Le Grand Méchant Loup", "À la croisée des chemins", "Noël mortel ","Bart le génie",
+            "Un atome de bon sens", "Simpsonothérapie","Terreur à la récré", "Ste Lisa Blues",
+            "L'Abominable Homme des bois","Bart a perdu la tête", "Marge perd la boule","L'Odyssée d'Homer",
+            "L'Espion qui venait de chez moi", "Un clown à l'ombre","Une soirée d'enfer"];
+
+        $epSummary = ["Sur le continent de Westeros, un jeune patrouilleur de la Garde de Nuit, chargée de veiller 
+        sur le Mur, est condamné à mort pour désertion par Eddard Stark, seigneur de Winterfell et Gardien du Nord. ",
+//            Episode1 Got
+        "Daenerys Targaryen, fraîchement mariée au khal Drogo, entreprend avec les Dothrakis et son frère le 
+        long voyage vers Vaes Dothrak. Afin de mieux satisfaire son mari et de prendre du plaisir à le faire,
+         elle prend des leçons d’amour auprès d'une de ses caméristes. ",
+//            Episode2 Got
+        "À peine arrivé à Port-Réal, Eddard Stark est convoqué à une session du conseil restreint et découvre alors
+        que le royaume est fortement endetté et doit beaucoup d'argent aux Lannister.",
+//            Episode3 Got
+        "Après un bref passage à Winterfell où il constate le handicap de Bran et donne les plans d'une selle adaptée
+         au jeune paralysé, Tyrion Lannister repart pour Port-Réal, déçu de l'accueil glacial qui lui a 
+         été prodigué chez les Stark. ",
+//            Episode4 Got
+        "Catelyn Stark, qui a quitté brutalement Winterfell, mène Tyrion Lannister vers la demeure de sa sœur pour 
+        qu'il y soit jugé.",
+//            Episode5 Got
 "Winterfell a vent de la guerre à venir, et les fils Stark se préparent au combat. Bran est plus soucieux par ses rêves récurrents, mais il se console avec sa nouvelle selle. ",
 "Robert a été grièvement blessé par un sanglier lors de sa partie de chasse et se meurt. ",
 "Alors que Lord Eddard Stark vient d'être envoyé aux cachots, Cersei Lannister ordonne l'assassinat de l'ensemble du clan Stark. ",

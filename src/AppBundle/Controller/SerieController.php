@@ -35,7 +35,7 @@ class SerieController extends Controller
         ));
     }
 
-    public function recentSeriesAction($max = 3)
+    public function recentSeriesAction($max = 6)
     {
         $em = $this->getDoctrine()->getManager();
 

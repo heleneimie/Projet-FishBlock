@@ -7,7 +7,7 @@
     {% if app.user.id is defined %}
     <li class="EffectOrange"><a href="{{ path('user_show', {'id': app.user.id}) }}">PROFIL</a></li>
     {% endif %}
-    <li class="EffectGreen"><a href="#">FORUM</a></li>
+    <li class="EffectGreen"><a href="{{ path('homepage') }}#forum">FORUM</a></li>
 
     <!-- Connexion / Inscription -->
     {% block login %}

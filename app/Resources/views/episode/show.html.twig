@@ -1,40 +1,32 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Episode</h1>
+    <div class="col-lg-12">
+        <h1>{{ episode.title }}</h1>
+        <a href="{{ path('serie_show', { 'id': episode.serie.id}) }}"><< Retour à la série</a>
+    </div>
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Titre de l'épisode</th>
-                <td>{{ episode.title }}</td>
-            </tr>
-            <tr>
-                <th>Date de diffusion</th>
-                <td>{% if episode.airdate %}{{ episode.airdate|date('Y-m-d') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Saison</th>
-                <td>{{ episode.season }}</td>
-            </tr>
-            <tr>
-                <th>Synopsis</th>
-                <td>{{ episode.summary }}</td>
-            </tr>
-        </tbody>
-    </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('serie_show', { 'id': episode.serie.id}) }}">Retour à la série</a>
-        </li>
-        <li>
-            <a href="{{ path('episode_edit', { 'id': episode.id }) }}">Modifier</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Supprimer">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <div class="col-lg-12">
+        <h2>Date de diffusion</h2>
+        <p>{% if episode.airdate %}{{ episode.airdate|date('Y-m-d') }}{% endif %}</p>
+
+        <h2>Saison</h2>
+        <p>{{ episode.season }}</p>
+
+        <h2>Synopsis</h2>
+        <p>{{ episode.summary }}</p>
+    </div>
+
+    <div class="col-lg-12">
+        <a href="{{ path('episode_edit', { 'id': episode.id }) }}">
+            <button type="button" class="btn btn-default">Modifier</button>
+        </a>
+
+        {{ form_start(delete_form) }}
+        <input type="submit" value="Supprimer" class="btn btn-default" />
+        {{ form_end(delete_form) }}
+    </div>
+
+
 {% endblock %}
