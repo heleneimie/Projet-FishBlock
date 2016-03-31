@@ -5,7 +5,7 @@
 
     {{ form_start(form, {'attr': {'class': 'col-lg-8'}}) }}
         {{ form_row(form.content, {'label': 'Commentaire'}) }}
-        {{ form_row(form.note, {'attr': {'min': '0', 'max': '10'}, 'label': 'Note (entre 0 et 10)'}) }}
+        {{ form_row(form.note, {'attr': {'min': '0', 'max': '10'}, 'label': 'Noter la série (entre 0 et 10)'}) }}
 
         <input type="submit" value="Envoyer le commentaire"  class="btn btn-lg" />
     {{ form_end(form) }}

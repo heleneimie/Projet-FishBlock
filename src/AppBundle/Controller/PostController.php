@@ -34,6 +34,10 @@ class PostController extends Controller
         ));
     }
 
+    /*
+     * List the recent Post additions in DB
+     * Render a view that can be included
+     */
     public function recentPostsAction($max = 5)
     {
         $em = $this->getDoctrine()->getManager();
@@ -110,6 +114,7 @@ class PostController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($post);
             $em->flush();
+            $this->addFlash('alert alert-success','Votre commentaire a bien été édité');
 
             return $this->redirectToRoute('post_show', array('id' => $post->getId()));
         }
@@ -136,9 +141,11 @@ class PostController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->remove($post);
             $em->flush();
+            $this->addFlash('alert alert-success','Votre commentaire a bien été effacé');
+
         }
 
-        return $this->redirectToRoute('post_index');
+        return $this->redirectToRoute('serie_show',['id'=>$post->getSerie()->getId()]);
     }
 
     /**

@@ -31,7 +31,12 @@ class Post
 
     /**
      * @var string
-     *
+     * @Assert\Length(
+     *      min = 4,
+     *      max = 250,
+     *      minMessage = "Votre commentaire doit comporter au moins {{ limit }} caractères",
+     *      maxMessage = "Désolé, pas plus de 250 {{ limit }} caractères"
+     * )
      * @ORM\Column(name="content", type="text")
      */
     private $content;

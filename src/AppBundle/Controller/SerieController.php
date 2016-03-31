@@ -34,7 +34,11 @@ class SerieController extends Controller
             'series' => $series,
         ));
     }
-
+    
+    /*
+     * List the recent Serie additions in DB
+     * Render a view that can be included
+     */
     public function recentSeriesAction($max = 6)
     {
         $em = $this->getDoctrine()->getManager();
