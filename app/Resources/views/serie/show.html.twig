@@ -21,51 +21,50 @@
     </div>
 
     <!-- Bloc acteurs -->
-    {% if app.user.username is defined %}
-        {{ form_start(delete_form) }}
-        <div class="col-lg-4">
-            <div class="asideBlock text-center">
-                <div class="asideBlockTitle text-center">
-                    <h4>Acteurs</h4>
-                </div>
-                {% for actor in serie.actors %}
-                    <div class="asideBlockPictures text-center">
-                        {#Ajouter {{ path('actor_show', { 'id': actor.id }) }} dans le href="" pour rediriger vers page acteur #}
-                        <a href="#">
-                            <div class="text-center">
-                                <figure>
-                                    <img class="actorPicture" align="center" src="{{ asset ('/images/' ~ actor.picture) }}" alt="{{ actor.firstname ~ ' ' ~  actor.lastname }}"><br/>
-                                </figure>
-                            </div>
-                            <div class="actorName text-center">
-                                {{ actor.firstname ~ ' ' ~  actor.lastname }}
-                            </div>
-                        </a>
-                    </div>
-                {% endfor %}
+
+    {{ form_start(delete_form) }}
+    <div class="col-lg-4">
+        <div class="asideBlock text-center">
+            <div class="asideBlockTitle text-center">
+                <h4>Acteurs</h4>
             </div>
-
-            <!-- Affichage conditionnel bouton Ajouter un épisode, si user connecté -->
-            {% if app.user.username is defined %}
-
-                <!-- Bouton Ajouter un épisode -->
-                <a href="{{ path('episode_new', { 'id': serie.id }) }}">
-                    <button type="button" class="btn btn-default btn-lg addEpisodeBtn">
-                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter un épisode
-                    </button>
-                </a>
-
-                <!-- Bouton Ajouter un acteur -->
-                {#Ajouter {{ path('actor_new', { 'id': serie.id }) }} dans le href="" pour rediriger vers la page de création d'acteur#}
-                <a href="#">
-                    <button type="button" class="btn btn-default btn-lg addActorBtn">
-                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter un acteur(trice)
-                    </button>
-                </a>
-            {% endif %}
+            {% for actor in serie.actors %}
+                <div class="asideBlockPictures text-center">
+                    {#Ajouter {{ path('actor_show', { 'id': actor.id }) }} dans le href="" pour rediriger vers page acteur #}
+                    <a href="#">
+                        <div class="text-center">
+                            <figure>
+                                <img class="actorPicture" align="center" src="{{ asset ('/images/' ~ actor.picture) }}" alt="{{ actor.firstname ~ ' ' ~  actor.lastname }}"><br/>
+                            </figure>
+                        </div>
+                        <div class="actorName text-center">
+                            {{ actor.firstname ~ ' ' ~  actor.lastname }}
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
         </div>
-        {{ form_end(delete_form) }}
-    {% endif %}
+
+        <!-- Affichage conditionnel bouton Ajouter un épisode, si user connecté -->
+        {% if app.user.id is defined and serie.author.id == app.user.id %}
+
+            <!-- Bouton Ajouter un épisode -->
+            <a href="{{ path('episode_new', { 'id': serie.id }) }}">
+                <button type="button" class="btn btn-default btn-lg addEpisodeBtn">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter un épisode
+                </button>
+            </a>
+
+            <!-- Bouton Ajouter un acteur -->
+            {#Ajouter {{ path('actor_new', { 'id': serie.id }) }} dans le href="" pour rediriger vers la page de création d'acteur#}
+            <a href="#">
+                <button type="button" class="btn btn-default btn-lg addActorBtn">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Ajouter un acteur(trice)
+                </button>
+            </a>
+        {% endif %}
+    </div>
+    {{ form_end(delete_form) }}
 
 
     <!-- Bloc droit -->
@@ -98,7 +97,7 @@
         {% endif %}
 
         <!-- Affichage conditionnel boutons modifier et supprimer un épisode, si user connecté -->
-        {% if serie.author.id == app.user.id %}
+        {% if app.user.id is defined and serie.author.id == app.user.id %}
             <button class="btn btn-default modBtn">
                 <a href="{{ path('serie_edit', { 'id': serie.id }) }}">Modifier</a>
             </button>

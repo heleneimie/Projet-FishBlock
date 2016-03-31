@@ -73,6 +73,12 @@ class User extends BaseUser
      */
     private $comments;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Serie", inversedBy="followedBy", cascade={"persist", "remove"})
+     * @ORM\JoinTable(name="series_followed")
+     */
+    private $seriesFollowed;
+
 
     public function __construct()
     {
@@ -82,6 +88,7 @@ class User extends BaseUser
         $this->seriesProposed = new ArrayCollection();
         $this->comments = new ArrayCollection();
         $this->created = new \DateTime();
+        $this->seriesFollowed = new ArrayCollection();
     }
 
     /**
@@ -304,4 +311,29 @@ class User extends BaseUser
     {
         $this->seriesProposed->removeElement($serie);
     }
+
+    public function addSeriesFollowed($serie)
+    {
+        foreach ($this->seriesFollowed as $sFollowed){
+            if($sFollowed == $serie){
+                return false;
+            }
+        }
+        $this->seriesFollowed[] = $serie;
+        return true;
+            
+    }
+
+    public function removeSeriesFollowed($serie)
+    {
+        $this->seriesFollowed->removeElement($serie);
+    }
+
+
+    public function getSeriesFollowed()
+    {
+        return $this->seriesFollowed;
+    }
+    
+    
 }

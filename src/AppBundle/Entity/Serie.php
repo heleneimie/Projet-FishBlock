@@ -115,14 +115,19 @@ class Serie
     private $poster;
 
     /**
-     * Constructor
+     * @ORM\ManyToMany(targetEntity="User", mappedBy="seriesFollowed")
+     *
      */
+    private $followedBy;
+
+
     public function __construct()
     {
         $this->date = new \DateTime();
         $this->actors = new ArrayCollection();
         $this->episodes = new ArrayCollection();
         $this->posts = new ArrayCollection();
+        $this->followedBy = new ArrayCollection();
     }
 
     /**
@@ -450,6 +455,11 @@ class Serie
     public function getPoster()
     {
         return $this->poster;
+    }
+
+    public function getFollowedBy()
+    {
+        return $this->followedBy;
     }
 
 }
