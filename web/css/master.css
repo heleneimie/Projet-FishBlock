@@ -1,7 +1,7 @@
 /******* CSS GROUPS *******/
 
 /**** Font Family ****/
-h1, #baseline, .navbar-default, .serieTitle, .timelineTitle, .asideBlockTitle{
+h1, #baseline, .navbar-default, .serieTitle, .timelineTitle, .asideBlockTitle, #serieTitleHome{
     font-family: Orbitron, sans-serif;
 }
 
@@ -90,12 +90,18 @@ h3{
 /**** Containers ****/
 
 .main{
-    min-height: 1000px;
+    min-height: 1500px;
 }
 
 .container-fluid
 {
     min-height: 100%;
+}
+
+/**** Home ****/
+
+#serieTitleHome{
+    color: #494E71;
 }
 
 /**** Serie_index ****/
@@ -153,9 +159,9 @@ h1.timelineTitle{
     margin-right: 30px;
 }
 
-.actorPicture{
+.actorMiniPicture, .serieMiniPoster, .avatarMini{
     width: 75px;
-    height: 75px;
+    /*max-height: 75px;*/
     margin-left: 5px;
 }
 
@@ -209,9 +215,9 @@ h1.timelineTitle{
     color: black;
 }
 
-.propSerieBtn{
+.propSerieBtn, .propComBtn{
     width: 450px;
-
+    margin-top: 30px;
 }
 
 /**** Notes (stars) ****/
@@ -267,4 +273,13 @@ h1.timelineTitle{
 
 .comment{
     font-size: 1.5em;
+}
+
+#commentList{
+    margin-top: 10px;
+}
+
+/**** Footer ****/
+.footer{
+    height: 100px;
 }

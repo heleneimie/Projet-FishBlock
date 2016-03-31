@@ -23,7 +23,6 @@
             <a href="{{ path('serie_show', { 'id': serie.id }) }}">
                 <div class="seriePoster text-center">
                     <figure>
-                        {# Ajouter {{ serie.poster }} à la place de src='' #}
                         <img align="center" id="posterSeries" src="{{ asset('/images/'~ serie.poster)}}" alt="{{ serie.title }}"><br/>
                     </figure>
                 </div>
@@ -36,6 +35,7 @@
     {% endfor %}
 
     <!-- Forum -->
+    <h1>Forum</h1>
     {% block forum %}
         {% include 'forum.html.twig' %}
     {% endblock %}
