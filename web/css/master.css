@@ -191,7 +191,7 @@ h1.timelineTitle{
 /**** Buttons ****/
 
 .buttonTimeline{
-    margin-left: 35px;
+    margin-left: 25px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -202,6 +202,16 @@ h1.timelineTitle{
 
 .addEpisodeBtn, .addActorBtn{
     margin-top: 10px;
+}
+
+.modBtn a{
+    text-decoration: none;
+    color: black;
+}
+
+.propSerieBtn{
+    width: 450px;
+
 }
 
 /**** Notes (stars) ****/

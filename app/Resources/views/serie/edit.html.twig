@@ -1,17 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Modification d'une série</h1>
+    <h1>Modifier les informations de {{ serie.title }}</h1>
 
-    {{ form_start(edit_form) }}
+    {{ form_start(edit_form, {'attr': {'class': 'col-lg-8'}}) }}
     {#{{ form_widget(edit_form) }}#}
     {{ form_row(edit_form.title, {'label': 'Titre de la série'}) }}
     {{ form_row(edit_form.actors, {'label': 'Acteurs'}) }}
-    {{ form_row(edit_form.season, {'attr': {'min': '1', 'max': '20'}}) }}
+    {{ form_row(edit_form.season, {'attr': {'min': '1', 'max': '20'}, 'label': 'N° de saison'}}) }}
     {#{{ form_row(edit_form.episodes, {'label': 'Episodes'}) }}#}
     {{ form_row(edit_form.summary, {'label': 'Synopsis'}) }}
     {{ form_row(edit_form.comments, {'label': 'Commentaires'}) }}
-    {{ form_row(edit_form.note, {'attr': {'min': '0', 'max': '10'}}) }}
+    {{ form_row(edit_form.note, {'attr': {'min': '0', 'max': '10'}, 'label': 'Note (entre 0 et 10)'}}) }}
     <input type="submit" value="Modifier" />
     {{ form_end(edit_form) }}
 

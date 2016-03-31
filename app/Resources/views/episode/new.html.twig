@@ -1,20 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Ajouter un épisode à la série</h1>
+    <h1>Ajouter un épisode à {{ serie.title }}</h1>
 
-    {{ form_start(form) }}
+    {{ form_start(form, {'attr': {'class': 'col-lg-8'}}) }}
         {{ form_row(form.title, {'label': 'Titre de l\'épisode'}) }}
-        {{ form_row(form.airdate, {'label': 'Date'}) }}
-        {{ form_row(form.season, {'label': 'Saison'}) }}
+        {{ form_row(form.airdate, {'label': 'Date de diffusion'}) }}
+        {{ form_row(form.season, {'attr': {'min': '1', 'max': '20'}, 'label': 'N° de saison'}) }}
         {{ form_row(form.summary, {'label': 'Synopsis'}) }}
-        {#{{ form_row(form.serie, {'label': 'Série'}) }}#}
-        <input type="submit" value="Proposer" />
+        <input type="submit" value="Proposer l'épisode" class="btn btn-default"/>
     {{ form_end(form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('episode_index') }}">Retour à la liste des épisodes</a>
-        </li>
-    </ul>
+    <a href="{{ path('serie_show', {'id': serie.id}) }}"><< Retour à la série</a>
 {% endblock %}

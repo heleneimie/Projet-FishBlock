@@ -1,15 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<h1>Proposition d'une série</h1>
+<h1>Proposer une série</h1>
 
 {{ form_start(form, {'attr': {'class': 'col-lg-8'}}) }}
         {{ form_row(form.title, {'label': 'Titre de la série'}) }}
-        {{ form_row(form.season, {'label': 'N° de saison'}) }}
+        {{ form_row(form.season, {'attr': {'min': '1', 'max': '20'}, 'label': 'N° de saison'}) }}
         {{ form_row(form.genre, {'label': 'Genre'}) }}
         {{ form_row(form.summary, {'label': 'Synopsis'}) }}
         {{ form_row(form.poster) }}
-        {{ form_row(form.note, {'attr': {'min': '0', 'max': '10'}}) }}
+        {{ form_row(form.note, {'attr': {'min': '0', 'max': '10'}, 'label': 'Note (entre 0 et 10)'}) }}
 
         <input type="submit" value="Proposer la série" class="btn btn-lg" />
     {{ form_end(form) }}

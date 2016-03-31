@@ -98,11 +98,11 @@
         {% endif %}
 
         <!-- Affichage conditionnel boutons modifier et supprimer un épisode, si user connecté -->
-        {% if app.user.username is defined %}
-            <button>
+        {% if serie.author.id == app.user.id %}
+            <button class="btn btn-default modBtn">
                 <a href="{{ path('serie_edit', { 'id': serie.id }) }}">Modifier</a>
             </button>
-            <input type="submit" value="Supprimer">
+            <input type="submit" value="Supprimer" class="btn btn-default" />
         {% endif %}
 
     </div>

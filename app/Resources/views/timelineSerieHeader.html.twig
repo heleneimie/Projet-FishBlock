@@ -4,10 +4,14 @@
         <div id="imaginary_container">
             <div class="input-group stylish-input-group">
                 <div class="col-lg-4">
-                    {#Mettre {{ serie.poster }} dans src=""#}
+
+                    <!-- Poster de la série -->
                     <img align="center" id="imageTimeline" src="{{ asset('/images/' ~ serie.poster)}}" alt="{{ serie.title }}">
+
                     <!-- Bouton pour suivre la série -->
-                    <input type="button" class="btn btn-default btn-lg buttonTimeline" value="Suivre la série"/>
+                    <button type="button" class="btn btn-default btn-lg buttonTimeline">
+                        <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Suivre la série
+                    </button>
                 </div>
 
                 <!-- Titre de la série -->

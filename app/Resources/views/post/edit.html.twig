@@ -1,19 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Modification d'un commentaire</h1>
+    <h1>Modifier mon commentaire sur {{ post.serie.title }}</h1>
 
-    {{ form_start(edit_form) }}
+    {{ form_start(edit_form, {'attr': {'class': 'col-lg-8'}}) }}
     {{ form_row(edit_form.content, {'label': 'Contenu'}) }}
-    {{ form_row(edit_form.note, {'attr': {'min': '0', 'max': '10'}}) }}
-    <input type="submit" value="Modifier" />
+    {{ form_row(edit_form.note, {'attr': {'min': '0', 'max': '10'}, 'label': 'Note (entre 0 et 10)'}) }}
+    <input type="submit" value="Modifier" class="btn btn-default"/>
     {{ form_end(edit_form) }}
 
-
-    <a href="{{ path('homepage') }}">Retour à l'accueil</a>
-
-    {{ form_start(delete_form) }}
-    <input type="submit" value="Supprimer">
+    {{ form_start(delete_form, {'attr': {'class': 'col-lg-8'}}) }}
+    <input type="submit" value="Supprimer" class="btn btn-default">
     {{ form_end(delete_form) }}
 
+    <a href="{{ path('homepage') }}"><< Retour à l'accueil</a>
 {% endblock %}

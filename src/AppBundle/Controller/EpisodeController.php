@@ -59,6 +59,7 @@ class EpisodeController extends Controller
 
         return $this->render('episode/new.html.twig', array(
             'episode' => $episode,
+            'serie' => $serie,
             'form' => $form->createView(),
         ));
     }
