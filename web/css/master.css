@@ -90,7 +90,7 @@ h3{
 /**** Containers ****/
 
 .main{
-    min-height: 2000px;
+    min-height: 1700px;
 }
 
 .container-fluid
@@ -220,7 +220,7 @@ h1.timelineTitle{
 }
 
 .propSerieBtn, .propComBtn{
-    width: 450px;
+    width: 300px;
     margin-top: 30px;
 }
 

@@ -22,69 +22,67 @@
 
     <!-- Bloc séries suivies aside -->
     <div class="col-lg-4">
-    <div class="asideBlock text-center">
-        <div class="asideBlockTitle text-center">
-            <h4>Séries suivies</h4>
-        </div>
-        {% for serie in user.seriesFollowed %}
-            <div class="asideBlockPictures text-center">
-                <a href="{{ path('serie_show', { 'id': serie.id }) }}">
-                    <div class="text-center">
-                        <figure>
-                            <img class="serieMiniPoster" align="center" src="{{ asset ('/images/' ~ serie.poster) }}" alt="{{ serie.title}}"><br/>
-                        </figure>
-                    </div>
-                    <div class="text-center">
-                        {{ serie.title }}
-                    </div>
-                </a>
+        <div class="asideBlock text-center">
+            <div class="asideBlockTitle text-center">
+                <h4>Mes amis</h4>
             </div>
-        {% endfor %}
+            {% for friend in user.myFriends %}
+
+                <div class="asideBlockPictures text-center">
+                    <a href="{{ path('user_show', { 'id': friend.id }) }}">
+                        <div class="text-center">
+                            <figure>
+                                <img class="avatarMini" align="center" src="{{ asset ('/images/' ~ friend.picture) }}"><br/>
+                            </figure>
+                        </div>
+                        <div class="text-center">
+                            {{ friend.username }}
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
     </div>
 
-    <!-- Bloc amis aside -->
-    <div class="col-lg-4">
-    <div class="asideBlock text-center">
-        <div class="asideBlockTitle text-center">
-            <h4>Mes amis</h4>
-        </div>
-        {{ dump(user.myFriends) }}
-        {% for friend in user.myFriends %}
-
-            <div class="asideBlockPictures text-center">
-                <a href="{{ path('user_show', { 'id': friend.id }) }}">
-                    <div class="text-center">
-                        <figure>
-                            <img class="avatarMini" align="center" src="{{ asset ('/images/' ~ friend.picture) }}"><br/>
-                        </figure>
-                    </div>
-                    <div class="text-center">
-                        {{ friend.username }}
-                    </div>
-                </a>
-            </div>
-        {% endfor %}
-    </div>
-
-    {#<!-- Notifications sur les séries suivies -->#}
-    {#<section id="serie" class="row">#}
-        {#<div class="col-lg-8">#}
-            {#<h1>Séries suivies</h1>#}
+    <!-- Notifications sur les séries suivies -->
+        <div class="col-lg-8">
+            <h1>Séries suivies</h1>
             {#{% if serie.followedBy %}#}
-                {#{{ render(controller('AppBundle:Serie:recentSeries',{ 'max': 2})) }}#}
+            {#{{ render(controller('AppBundle:Serie:recentSeries',{ 'max': 2})) }}#}
             {#{% endif %}#}
-        {#</div>#}
-    {#</section>#}
+        </div>
 
-    {#<!-- Derniers commentaires des amis -->#}
-    {#<section id="comment" class="row">#}
-        {#<div class="col-lg-8">#}
-            {#<h1>Derniers commentaires de mes ami(e)s</h1>#}
+    <!-- Derniers commentaires des amis -->
+        <div class="col-lg-8">
+            <h1>Derniers commentaires de mes ami(e)s</h1>
             {#{% if post.author.friendWithMe %}#}
                 {#{{ render(controller('AppBundle:Post:recentPosts',{ 'max': 2 })) }}#}
             {#{% endif %}#}
-        {#</div>#}
-    {#</section>#}
+        </div>
+
+
+    <!-- Bloc amis aside -->
+    <div class="col-lg-4">
+        <div class="asideBlock text-center">
+            <div class="asideBlockTitle text-center">
+                <h4>Séries suivies</h4>
+            </div>
+            {% for serie in user.seriesFollowed %}
+                <div class="asideBlockPictures text-center">
+                    <a href="{{ path('serie_show', { 'id': serie.id }) }}">
+                        <div class="text-center">
+                            <figure>
+                                <img class="serieMiniPoster" align="center" src="{{ asset ('/images/' ~ serie.poster) }}" alt="{{ serie.title}}"><br/>
+                            </figure>
+                        </div>
+                        <div class="text-center">
+                            {{ serie.title }}
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 
 
 {% endblock %}

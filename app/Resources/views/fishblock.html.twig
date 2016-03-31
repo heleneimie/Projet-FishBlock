@@ -3,19 +3,20 @@
     {#<link rel="stylesheet" href="{{ asset('/css/fishblock.css') }}" title="FishBlock Css" type="text/css"  property="stylesheet"/>#}
     <style scoped>
         #fishblock{
-            margin-top: -230px;
-            margin-left: 260px;
+            /*margin-top: -230px;*/
+            /*margin-left: 270px;*/
+            display: flex;
         }
 
         #container{
             width: 400px;
             height: 400px;
-            margin-top: 250px;
-            margin-left: 250px;
             position: relative;
             background-color: rgba(22, 160, 133,1.0);
             border: 15px solid  rgba(44, 62, 80,1.0);
             border-radius: 10px;
+            flex-direction: column;
+            margin: auto;
         }
 
 
@@ -115,7 +116,7 @@
             }
     </style>
 </header>
-<div class="col-lg-12 text-center" id="fishblock">
+<div class="col-lg-12" id="fishblock">
     <div id="container">
         <div id="fish_body">
             <div id="fish_eye"></div>
