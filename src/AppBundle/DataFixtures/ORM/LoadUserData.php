@@ -42,7 +42,6 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
         $user1 = new User();
         $user1->setUsername('jeremy')
             ->setEmail('jeremy@jeremy.fr')
-            ->setLogin('jeremimie')
             ->setPicture($picture[1]);
 //        $user->setSalt(md5(uniqid()));
 
@@ -58,7 +57,6 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
         $user2 = new User();
         $user2->setUsername('helene')
             ->setEmail('helene@helene.fr')
-            ->setLogin('helemimie')
             ->setPicture($picture[2]);
 //        $user->setSalt(md5(uniqid()));
 
@@ -74,7 +72,6 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
         $user3 = new User();
         $user3->setUsername('clement')
             ->setEmail('clement@clement.fr')
-            ->setLogin('clemimie')
             ->setPicture($picture[1]);
 //        $user->setSalt(md5(uniqid()));
 
@@ -90,7 +87,6 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
         $user4 = new User();
         $user4->setUsername('jonathan')
             ->setEmail('jonathan@jonathan.fr')
-            ->setLogin('mimiejo')
             ->setPicture($picture[1]);
 //        $user->setSalt(md5(uniqid()));
 
