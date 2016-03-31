@@ -21,18 +21,16 @@
                 <!-- Titre de la série -->
                 <div class="col-lg-8">
                     <h1 class="timelineTitle">{{ serie.title }}</h1>
-
                     <!-- Note de la série (étoiles) -->
                     <div class="starsNote">
                         {% for i in 0..serie.note %}
                             <span class="glyphicon glyphicon-star"></span>
                         {% endfor %}
-                        {% for j in serie.note..10 %}
+                        {% for j in serie.note..8 %}
                             <span class="glyphicon glyphicon-star-empty"></span>
                         {% endfor %}
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

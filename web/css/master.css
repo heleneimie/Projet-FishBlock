@@ -90,7 +90,7 @@ h3{
 /**** Containers ****/
 
 .main{
-    min-height: 1700px;
+    min-height: 2000px;
 }
 
 .container-fluid
@@ -104,8 +104,16 @@ h3{
 
 /**** Home ****/
 
+.blockSerieHome{
+    margin-top: 40px;
+}
+
 #serieTitleHome{
     color: #494E71;
+}
+
+#h1Home{
+    margin-bottom: 20px;
 }
 
 /**** Serie_index ****/
@@ -141,6 +149,7 @@ h1.timelineTitle{
     margin-top: 50px;
     margin-bottom: 40px;
 }
+
 
 .asideBlock{
     margin-top: 30px;
