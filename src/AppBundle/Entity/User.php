@@ -186,12 +186,12 @@ class User extends BaseUser
     /**
      * Add friendsWithMe
      *
-     * @param \AppBundle\Entity\User $friendsWithMe
+     * @param \AppBundle\Entity\User $user
      * @return User
      */
-    public function addFriendsWithMe(\AppBundle\Entity\User $friendsWithMe)
+    public function addFriendsWithMe(\AppBundle\Entity\User $user)
     {
-        $this->friendsWithMe[] = $friendsWithMe;
+        $this->friendsWithMe[] = $user;
 
         return $this;
     }
@@ -199,11 +199,11 @@ class User extends BaseUser
     /**
      * Remove friendsWithMe
      *
-     * @param \AppBundle\Entity\User $friendsWithMe
+     * @param \AppBundle\Entity\User $user
      */
-    public function removeFriendsWithMe(\AppBundle\Entity\User $friendsWithMe)
+    public function removeFriendsWithMe(\AppBundle\Entity\User $user)
     {
-        $this->friendsWithMe->removeElement($friendsWithMe);
+        $this->friendsWithMe->removeElement($user);
     }
 
     /**
@@ -219,24 +219,28 @@ class User extends BaseUser
     /**
      * Add myFriends
      *
-     * @param \AppBundle\Entity\User $myFriends
+     * @param \AppBundle\Entity\User $user
      * @return User
      */
-    public function addMyFriend(\AppBundle\Entity\User $myFriends)
+    public function addMyFriend(\AppBundle\Entity\User $user)
     {
-        $this->myFriends[] = $myFriends;
-
-        return $this;
+        foreach ($this->myFriends as $friend){
+            if($friend == $user){
+                return false;
+            }
+        }
+        $this->myFriends[] = $user;
+        return true;
     }
 
     /**
      * Remove myFriends
      *
-     * @param \AppBundle\Entity\User $myFriends
+     * @param \AppBundle\Entity\User $user
      */
-    public function removeMyFriend(\AppBundle\Entity\User $myFriends)
+    public function removeMyFriend(\AppBundle\Entity\User $user)
     {
-        $this->myFriends->removeElement($myFriends);
+        $this->myFriends->removeElement($user);
     }
 
     /**

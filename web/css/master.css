@@ -124,7 +124,7 @@ h3{
 
 /**** Serie_show ****/
 
-.timelineSerieHeader{
+.timelineSerieHeader, .timelineUserHeader{
     margin-top: -20px;
     margin-bottom: 40px;
     box-shadow: 2px 2px 12px #aaa;

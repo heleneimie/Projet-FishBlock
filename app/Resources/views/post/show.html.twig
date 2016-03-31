@@ -5,7 +5,12 @@
 
     <div class="col-lg-4">
         <img align="left" id="avatar" src="{{ asset('/images/' ~ post.author.picture)}}"><br/>
-
+        {% if app.user.id != post.author.id %}
+            <a href="{{ path('follow_user', {'id': post.author.id }) }}"><button type="button" class="btn btn-default btn-lg buttonTimeline">
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Devenir ami(e)
+                </button>
+            </a>
+        {% endif %}
     </div>
 
     <div class="col-lg-8">

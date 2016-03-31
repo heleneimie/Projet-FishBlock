@@ -35,6 +35,29 @@ class UserController extends Controller
     }
 
     /**
+     * @Route("/followUser/{id}", name="follow_user")
+     */
+    public function followUserAction(User $user)
+    {
+        $myself = $this->getUser();
+
+        if ($myself->addMyFriend($user)){
+            $em = $this->getDoctrine()->getManager();
+
+            $em->persist($myself);
+            $em->flush();
+
+            $message = "Vous suivez maintenant ".$user->getUsername();
+            $this->addFlash('alert alert-success',$message);
+        }else{
+            $this->addFlash('alert alert-warning','Vous suivez deja cette personne!');
+
+        }
+
+        return $this->redirectToRoute('homepage');
+    }
+
+    /**
      *
      * @Route("/userWall/{id}", name="user_show")
      */

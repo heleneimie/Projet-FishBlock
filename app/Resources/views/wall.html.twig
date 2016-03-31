@@ -48,16 +48,18 @@
         <div class="asideBlockTitle text-center">
             <h4>Mes amis</h4>
         </div>
-        {% for user in user.friendsWithMe %}
+        {{ dump(user.myFriends) }}
+        {% for friend in user.myFriends %}
+
             <div class="asideBlockPictures text-center">
-                <a href="{{ path('user_show', { 'id': user.id }) }}">
+                <a href="{{ path('user_show', { 'id': friend.id }) }}">
                     <div class="text-center">
                         <figure>
-                            <img class="avatarMini" align="center" src="{{ asset ('/images/' ~ user.picture) }}" alt="{{ user.firstname ~ ' ' ~ user.lastname}}"><br/>
+                            <img class="avatarMini" align="center" src="{{ asset ('/images/' ~ friend.picture) }}"><br/>
                         </figure>
                     </div>
                     <div class="text-center">
-                        {{ serie.title }}
+                        {{ friend.username }}
                     </div>
                 </a>
             </div>
