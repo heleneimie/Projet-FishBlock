@@ -320,6 +320,7 @@ class User extends BaseUser
             }
         }
         $this->seriesFollowed[] = $serie;
+        $serie->setFollowedBy($this);
         return true;
             
     }
@@ -327,6 +328,7 @@ class User extends BaseUser
     public function removeSeriesFollowed($serie)
     {
         $this->seriesFollowed->removeElement($serie);
+        $serie->removeFollowedBy($this);
     }
 
 

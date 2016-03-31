@@ -457,9 +457,21 @@ class Serie
         return $this->poster;
     }
 
+    public function setFollowedBy($user)
+    {
+        $this->followedBy[] = $user;
+    }
+
+    public function removeFollowedBy($user)
+    {
+        $this->followedBy->removeElement($user);
+    }
+
     public function getFollowedBy()
     {
         return $this->followedBy;
     }
+
+
 
 }
